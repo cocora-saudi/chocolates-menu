@@ -448,6 +448,40 @@
     margin: 0 0 1.5rem;
   }
 
+  .package-tabs {
+    display: flex;
+    gap: 8px;
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .package-tab {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid rgba(201,161,90,0.4);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--cream);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .package-tab.active {
+    background: var(--gold);
+    color: var(--burgundy);
+    border-color: var(--gold);
+  }
+
+  .package-delivery-note {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+
   .package-grid {
     display: flex;
     flex-direction: column;
@@ -633,8 +667,15 @@
   <p class="tagline">باقات المناسبات والأعراس</p>
   <p class="package-intro">الباقات تبدأ من 30 شخصًا وتزداد حسب عدد الضيوف</p>
 
+  <div class="package-tabs" role="tablist">
+    <button type="button" class="package-tab active" data-package-tab="combo">شوكولاتة وموالح</button>
+    <button type="button" class="package-tab" data-package-tab="chocolate">شوكولاتة فقط</button>
+  </div>
+
   <main class="package-main">
-    <div class="package-grid" id="package-grid"></div>
+    <div class="package-grid" id="package-grid-combo"></div>
+    <p class="package-delivery-note" id="package-delivery-note" hidden>التوصيل مجانًا حاليًا داخل مدينة الرياض</p>
+    <div class="package-grid" id="package-grid-chocolate" hidden></div>
 
     <div class="package-cta">
       <a class="order-btn" href="https://api.whatsapp.com/message/5D6Z5XVXBX2NG1" target="_blank" rel="noopener">
@@ -911,7 +952,7 @@
     { pax: 400, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 28, savoryTrays: 16, kilo: "كيلو ونص", price: 22080 }
   ];
 
-  const packageGrid = document.getElementById('package-grid');
+  const packageGridCombo = document.getElementById('package-grid-combo');
   packages.forEach((pkg) => {
     const card = document.createElement('div');
     card.className = 'package-card';
@@ -927,7 +968,55 @@
       </ul>
       <p class="package-price">${pkg.price.toLocaleString('en-US')} ريال <span class="price-note">قبل الخصم</span></p>
     `;
-    packageGrid.appendChild(card);
+    packageGridCombo.appendChild(card);
+  });
+
+  /*
+    CHOCOLATE-ONLY PACKAGES — edit here.
+    Same guest-count tiers as the combo packages, but no savory trays.
+    "extras" is null for the 30/50-guest tiers (no supervisor mentioned);
+    the 100-guest tier and up include a supervisor (مشرفة).
+    No "before discount" note was given for this list, so none is shown —
+    add price-note text back in if these prices should carry it too.
+  */
+  const chocolateOnlyPackages = [
+    { pax: 30,  extras: null,       trays: 4,  kilo: 4,    price: 1600 },
+    { pax: 50,  extras: null,       trays: 6,  kilo: 9,    price: 3600 },
+    { pax: 100, extras: "مشرفة",    trays: 10, kilo: 15,   price: 6000 },
+    { pax: 150, extras: "مشرفة",    trays: 15, kilo: 22.5, price: 9000 },
+    { pax: 200, extras: "مشرفة",    trays: 20, kilo: 30,   price: 12000 },
+    { pax: 300, extras: "مشرفة",    trays: 25, kilo: 37.5, price: 15000 },
+    { pax: 400, extras: "مشرفة",    trays: 30, kilo: 45,   price: 18000 }
+  ];
+
+  const packageGridChocolate = document.getElementById('package-grid-chocolate');
+  chocolateOnlyPackages.forEach((pkg) => {
+    const card = document.createElement('div');
+    card.className = 'package-card';
+    card.innerHTML = `
+      <div class="package-card-head">
+        <span class="package-pax">باقة ${pkg.pax} شخص</span>
+        ${pkg.extras ? `<span class="package-extras">+ ${pkg.extras}</span>` : ''}
+      </div>
+      <ul class="package-specs">
+        <li><span class="spec-label">عدد الصواني</span><span class="spec-value">${pkg.trays} صينية</span></li>
+        <li><span class="spec-label">عدد الكيلو</span><span class="spec-value">${pkg.kilo} كيلو</span></li>
+      </ul>
+      <p class="package-price">${pkg.price.toLocaleString('en-US')} ريال <span class="price-note">قبل الخصم</span></p>
+    `;
+    packageGridChocolate.appendChild(card);
+  });
+
+  const packageDeliveryNote = document.getElementById('package-delivery-note');
+  const packageTabs = document.querySelectorAll('[data-package-tab]');
+  packageTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.packageTab;
+      packageTabs.forEach((t) => t.classList.toggle('active', t === tab));
+      packageGridCombo.hidden = target !== 'combo';
+      packageGridChocolate.hidden = target !== 'chocolate';
+      packageDeliveryNote.hidden = target !== 'chocolate';
+    });
   });
 
   /* View switching: landing (default) / menu / packages, single file, no new URL */
