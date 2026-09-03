@@ -488,6 +488,10 @@
     gap: 14px;
   }
 
+  .package-grid[hidden] {
+    display: none;
+  }
+
   .package-card {
     background: var(--card-bg);
     border-radius: 14px;
@@ -976,8 +980,7 @@
     Same guest-count tiers as the combo packages, but no savory trays.
     "extras" is null for the 30/50-guest tiers (no supervisor mentioned);
     the 100-guest tier and up include a supervisor (مشرفة).
-    No "before discount" note was given for this list, so none is shown —
-    add price-note text back in if these prices should carry it too.
+    Prices are "before discount" (قبل الخصم), same as the combo packages.
   */
   const chocolateOnlyPackages = [
     { pax: 30,  extras: null,       trays: 4,  kilo: 4,    price: 1600 },
