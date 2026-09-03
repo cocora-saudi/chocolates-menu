@@ -28,6 +28,7 @@
   .logo-wrap {
     padding: 2rem 1rem 0.5rem;
     text-align: center;
+    cursor: pointer;
   }
 
   .logo-wrap img {
@@ -332,75 +333,293 @@
     font-size: 0.7rem;
     color: var(--text-secondary);
   }
+
+  /* Landing chooser */
+  .view[hidden] { display: none; }
+
+  .landing-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 1rem 2.5rem;
+  }
+
+  .choice-card {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--card-bg);
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+  }
+
+  .choice-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: var(--border);
+  }
+
+  .choice-card-body {
+    padding: 14px 16px 16px;
+    text-align: center;
+  }
+
+  .choice-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .choice-ar {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--burgundy);
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  /* Back navigation (menu / packages views) */
+  .view-toolbar {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem 0;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid rgba(201,161,90,0.4);
+    border-radius: 999px;
+    color: var(--cream);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  /* Packages view */
+  .package-main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1rem 2.5rem;
+  }
+
+  .package-intro {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.85;
+    margin: 0 0 1.5rem;
+  }
+
+  .package-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .package-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+
+  .package-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  .package-pax {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--burgundy);
+  }
+
+  .package-extras {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  .package-specs {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .package-specs li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+  }
+
+  .spec-label {
+    color: var(--text-secondary);
+  }
+
+  .package-price {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--burgundy);
+  }
+
+  .price-note {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-inline-start: 4px;
+  }
+
+  .package-cta {
+    margin-top: 22px;
+    text-align: center;
+  }
+
+  .package-cta .order-btn {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 </style>
 </head>
 <body>
 
-<div class="logo-wrap">
+<div class="logo-wrap" id="logoHome" role="button" tabindex="0" aria-label="Cocora home">
   <img src="images/cocora-logo.jpg" alt="Cocora — The Saudi Touch of Chocolate Art">
 </div>
-<p class="tagline">Menu</p>
 
-<nav class="category-nav">
-  <a href="#dragee">Dragee</a>
-  <a href="#bar">Bar</a>
-  <a href="#fingers">Fingers &amp; cigarettes</a>
-  <a href="#box">Box</a>
-  <a href="#flavors">Ganache &amp; praline</a>
-  <a href="#specials">Cocora Specials</a>
-</nav>
+<!-- LANDING -->
+<div class="view" id="view-landing">
+  <p class="tagline">Choose an Option</p>
+  <p class="tagline" dir="rtl">اختر خيارًا</p>
 
-<main>
+  <div class="landing-choices">
+    <button type="button" class="choice-card" data-view="menu">
+      <img src="images/category-box.jpg" alt="Chocolates">
+      <div class="choice-card-body">
+        <span class="choice-title">Chocolates</span>
+        <span class="choice-ar" dir="rtl">الشوكولاتة</span>
+      </div>
+    </button>
+    <button type="button" class="choice-card" data-view="packages">
+      <img src="images/wedding-sweets.jpeg" alt="Party &amp; Wedding Packages">
+      <div class="choice-card-body">
+        <span class="choice-title">Party &amp; Wedding Packages</span>
+        <span class="choice-ar" dir="rtl">باقات المناسبات والأعراس</span>
+      </div>
+    </button>
+  </div>
+</div>
 
-  <section class="category" id="dragee">
-    <div class="category-header">
-      <h2>Dragee</h2>
-      <span class="ar">دراجيه</span>
+<!-- MENU -->
+<div class="view" id="view-menu" hidden>
+  <div class="view-toolbar">
+    <button type="button" class="back-btn" data-back>← Back</button>
+  </div>
+  <p class="tagline">Menu</p>
+
+  <nav class="category-nav">
+    <a href="#dragee">Dragee</a>
+    <a href="#bar">Bar</a>
+    <a href="#fingers">Fingers &amp; cigarettes</a>
+    <a href="#box">Box</a>
+    <a href="#flavors">Ganache &amp; praline</a>
+    <a href="#specials">Cocora Specials</a>
+  </nav>
+
+  <main>
+
+    <section class="category" id="dragee">
+      <div class="category-header">
+        <h2>Dragee</h2>
+        <span class="ar">دراجيه</span>
+      </div>
+      <div class="grid" id="grid-dragee"></div>
+    </section>
+
+    <section class="category" id="bar">
+      <div class="category-header">
+        <h2>Bar</h2>
+        <span class="ar">بار</span>
+      </div>
+      <div class="grid" id="grid-bar"></div>
+    </section>
+
+    <section class="category" id="fingers">
+      <div class="category-header">
+        <h2>Fingers, cigarettes</h2>
+        <span class="ar">أصابع، رولات</span>
+      </div>
+      <div class="grid" id="grid-fingers"></div>
+    </section>
+
+    <section class="category" id="box">
+      <div class="category-header">
+        <h2>Box</h2>
+        <span class="ar">بوكس</span>
+      </div>
+      <div class="grid" id="grid-box"></div>
+    </section>
+
+    <section class="category" id="specials">
+      <div class="category-header">
+        <h2>Cocora Specials</h2>
+        <span class="ar">عروض كوكورا</span>
+      </div>
+      <div class="grid" id="grid-specials"></div>
+    </section>
+
+    <section class="category" id="flavors">
+      <div class="category-header">
+        <h2>Ganache &amp; praline</h2>
+        <span class="ar">غانش وبرالين</span>
+      </div>
+      <div class="grid" id="grid-flavors"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- PACKAGES -->
+<div class="view" id="view-packages" hidden dir="rtl">
+  <div class="view-toolbar">
+    <button type="button" class="back-btn" data-back>→ رجوع</button>
+  </div>
+  <p class="tagline">باقات المناسبات والأعراس</p>
+  <p class="package-intro">الباقات تبدأ من 30 شخصًا وتزداد حسب عدد الضيوف</p>
+
+  <main class="package-main">
+    <div class="package-grid" id="package-grid"></div>
+
+    <div class="package-cta">
+      <a class="order-btn" href="https://api.whatsapp.com/message/5D6Z5XVXBX2NG1" target="_blank" rel="noopener">
+        <svg class="order-btn-icon" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M12.01 2C6.49 2 2 6.48 2 12c0 1.77.46 3.45 1.32 4.94L2 22l5.2-1.36A9.96 9.96 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm5.75 14.15c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.44-.72-2.9-1.15-4.76-4.1-4.9-4.29-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .9 2.14.07.15.12.32.02.51-.1.19-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.26 1.64 2.04 1.13.99 2.08 1.3 2.37 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.28.38-.24.63-.14.26.1 1.66.78 1.94.92.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/></svg>
+        للاستفسار والحجز عبر واتساب
+      </a>
     </div>
-    <div class="grid" id="grid-dragee"></div>
-  </section>
-
-  <section class="category" id="bar">
-    <div class="category-header">
-      <h2>Bar</h2>
-      <span class="ar">بار</span>
-    </div>
-    <div class="grid" id="grid-bar"></div>
-  </section>
-
-  <section class="category" id="fingers">
-    <div class="category-header">
-      <h2>Fingers, cigarettes</h2>
-      <span class="ar">أصابع، رولات</span>
-    </div>
-    <div class="grid" id="grid-fingers"></div>
-  </section>
-
-  <section class="category" id="box">
-    <div class="category-header">
-      <h2>Box</h2>
-      <span class="ar">بوكس</span>
-    </div>
-    <div class="grid" id="grid-box"></div>
-  </section>
-
-  <section class="category" id="specials">
-    <div class="category-header">
-      <h2>Cocora Specials</h2>
-      <span class="ar">عروض كوكورا</span>
-    </div>
-    <div class="grid" id="grid-specials"></div>
-  </section>
-
-  <section class="category" id="flavors">
-    <div class="category-header">
-      <h2>Ganache &amp; praline</h2>
-      <span class="ar">غانش وبرالين</span>
-    </div>
-    <div class="grid" id="grid-flavors"></div>
-  </section>
-
-</main>
+  </main>
+</div>
 
 <footer>
   <a href="https://www.instagram.com/cocora_sa/" target="_blank" rel="noopener" class="footer-link">@cocora_sa</a>
@@ -648,6 +867,75 @@
     const card = buildCard(img, f, priceLabel, () => openDetail(img, f, false));
     flavorGrid.appendChild(card);
   });
+
+  /*
+    PARTY & WEDDING PACKAGES — edit here.
+    "extras" is the supervisor/delivery line shown under the guest count;
+    leave it null for a package with no extras (the 30-guest tier is
+    pickup only, no supervisor/delivery included).
+    All prices are "before discount" (قبل الخصم) as given.
+  */
+  const packages = [
+    { pax: 30,  extras: null, chocolateTrays: 2,  savoryTrays: 1,  kilo: "كيلو ونص", price: 1530 },
+    { pax: 50,  extras: "توصيل للشوكولاتة والموالح", chocolateTrays: 4,  savoryTrays: 2,  kilo: "كيلو ونص", price: 3060 },
+    { pax: 100, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 8,  savoryTrays: 4,  kilo: "كيلو ونص", price: 6120 },
+    { pax: 150, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 10, savoryTrays: 5,  kilo: "كيلو ونص", price: 7650 },
+    { pax: 200, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 15, savoryTrays: 8,  kilo: "كيلو ونص", price: 11640 },
+    { pax: 300, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 20, savoryTrays: 10, kilo: "كيلو ونص", price: 15300 },
+    { pax: 400, extras: "مشرفة + توصيل للشوكولاتة والموالح", chocolateTrays: 28, savoryTrays: 16, kilo: "كيلو ونص", price: 22080 }
+  ];
+
+  const packageGrid = document.getElementById('package-grid');
+  packages.forEach((pkg) => {
+    const card = document.createElement('div');
+    card.className = 'package-card';
+    card.innerHTML = `
+      <div class="package-card-head">
+        <span class="package-pax">باقة ${pkg.pax} شخص</span>
+        ${pkg.extras ? `<span class="package-extras">+ ${pkg.extras}</span>` : ''}
+      </div>
+      <ul class="package-specs">
+        <li><span class="spec-label">صواني الشوكولاتة</span><span class="spec-value">${pkg.chocolateTrays} صينية</span></li>
+        <li><span class="spec-label">صواني الموالح</span><span class="spec-value">${pkg.savoryTrays} صينية</span></li>
+        <li><span class="spec-label">الكيلو</span><span class="spec-value">${pkg.kilo}</span></li>
+      </ul>
+      <p class="package-price">${pkg.price.toLocaleString('en-US')} ريال <span class="price-note">قبل الخصم</span></p>
+    `;
+    packageGrid.appendChild(card);
+  });
+
+  /* View switching: landing (default) / menu / packages, single file, no new URL */
+  const views = {
+    landing: document.getElementById('view-landing'),
+    menu: document.getElementById('view-menu'),
+    packages: document.getElementById('view-packages')
+  };
+
+  function showView(name) {
+    Object.keys(views).forEach((key) => {
+      views[key].hidden = key !== name;
+    });
+    window.scrollTo(0, 0);
+  }
+
+  document.querySelectorAll('[data-view]').forEach((el) => {
+    el.addEventListener('click', () => showView(el.dataset.view));
+  });
+
+  document.querySelectorAll('[data-back]').forEach((el) => {
+    el.addEventListener('click', () => showView('landing'));
+  });
+
+  const logoHome = document.getElementById('logoHome');
+  logoHome.addEventListener('click', () => showView('landing'));
+  logoHome.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showView('landing');
+    }
+  });
+
+  showView('landing');
 </script>
 
 </body>
