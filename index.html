@@ -564,15 +564,39 @@
   <p class="tagline">Menu</p>
 
   <nav class="category-nav">
+    <a href="#flavors">Ganache &amp; praline</a>
+    <a href="#specials">Cocora Specials</a>
+    <a href="#box">Box</a>
     <a href="#dragee">Dragee</a>
     <a href="#bar">Bar</a>
     <a href="#fingers">Fingers &amp; cigarettes</a>
-    <a href="#box">Box</a>
-    <a href="#flavors">Ganache &amp; praline</a>
-    <a href="#specials">Cocora Specials</a>
   </nav>
 
   <main>
+
+    <section class="category" id="flavors">
+      <div class="category-header">
+        <h2>Ganache &amp; praline</h2>
+        <span class="ar">غانش وبرالين</span>
+      </div>
+      <div class="grid" id="grid-flavors"></div>
+    </section>
+
+    <section class="category" id="specials">
+      <div class="category-header">
+        <h2>Cocora Specials</h2>
+        <span class="ar">عروض كوكورا</span>
+      </div>
+      <div class="grid" id="grid-specials"></div>
+    </section>
+
+    <section class="category" id="box">
+      <div class="category-header">
+        <h2>Box</h2>
+        <span class="ar">بوكس</span>
+      </div>
+      <div class="grid" id="grid-box"></div>
+    </section>
 
     <section class="category" id="dragee">
       <div class="category-header">
@@ -596,30 +620,6 @@
         <span class="ar">أصابع، رولات</span>
       </div>
       <div class="grid" id="grid-fingers"></div>
-    </section>
-
-    <section class="category" id="box">
-      <div class="category-header">
-        <h2>Box</h2>
-        <span class="ar">بوكس</span>
-      </div>
-      <div class="grid" id="grid-box"></div>
-    </section>
-
-    <section class="category" id="specials">
-      <div class="category-header">
-        <h2>Cocora Specials</h2>
-        <span class="ar">عروض كوكورا</span>
-      </div>
-      <div class="grid" id="grid-specials"></div>
-    </section>
-
-    <section class="category" id="flavors">
-      <div class="category-header">
-        <h2>Ganache &amp; praline</h2>
-        <span class="ar">غانش وبرالين</span>
-      </div>
-      <div class="grid" id="grid-flavors"></div>
     </section>
 
   </main>
@@ -746,7 +746,8 @@
       items: [
         { name: "Salted Biscuits", price: "220 SAR/kg", description: "Buttery salted biscuits, made fresh to order.", image: "images/salted-biscuits.jpeg" },
         { name: "Stuffed Dates", price: "190 SAR/kg", description: "Premium dates stuffed with a Cocora filling.", image: "images/stuffed-dates.jpeg" },
-        { name: "Wedding Sweets", price: "For Price Inquiry, please call or message WhatsApp", description: "Custom sweet arrangements for weddings and events.", image: "images/wedding-sweets.jpeg" }
+        { name: "Wedding Sweets", price: "For Price Inquiry, please call or message WhatsApp", description: "Custom sweet arrangements for weddings and events.", image: "images/wedding-sweets.jpeg" },
+        { name: "Custom Brand Covered Chocolates / شوكولاتة بشعار العلامة التجارية", price: "For Price Inquiry, please call or message WhatsApp", description: "Chocolate pieces custom-covered with your company logo — made to order for corporate gifting and special events." }
       ]
     }
   };
