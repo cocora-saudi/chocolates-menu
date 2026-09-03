@@ -145,6 +145,30 @@
     margin: 0;
   }
 
+  .card-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+
+  .badge-bestseller {
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+
+  .badge-specialty {
+    background: var(--gold);
+    color: var(--burgundy);
+  }
+
   /* Detail overlay */
   .overlay {
     display: none;
@@ -638,7 +662,7 @@
     <span class="map-link-label">Visit Us</span>
   </a>
   <br>
-  <span class="footer-credit">Design and Made by MG</span>
+  <span class="footer-credit">Design and Made by Medelo Software</span>
 </footer>
 
 <div class="overlay" id="overlay">
@@ -740,33 +764,26 @@
     { name: "Spice ganache", price: "400 SAR/kg", description: "A warmly spiced ganache blended with rich dark chocolate.", allergy: "Milk" },
     { name: "Earl grey", price: "400 SAR/kg", description: "A fragrant Earl Grey tea-infused ganache.", allergy: "Milk" },
     { name: "Raspberry delight", price: "400 SAR/kg", description: "A bright raspberry ganache balanced with smooth chocolate.", allergy: "Milk, Eggs, Gluten, Nuts" },
-    { name: "Tropical caramel", price: "400 SAR/kg", description: "Soft caramel with a tropical fruit twist.", allergy: "Milk" },
     { name: "Cinnamon crunchy speculaas", price: "400 SAR/kg", description: "Cinnamon speculaas praline with a crunchy biscuit texture.", allergy: "Milk, Gluten, Soya" },
-    { name: "Espresso pecan praline", price: "400 SAR/kg", description: "Roasted pecan praline layered with bold espresso.", allergy: "Milk, Gluten, Nuts, Soya" },
-    { name: "Espresso & vanilla", price: "400 SAR/kg", description: "Smooth espresso ganache paired with vanilla.", allergy: "Milk, Nuts" },
-    { name: "Pistachio & lemon", price: "400 SAR/kg", description: "Pistachio praline lifted with a touch of fresh lemon.", allergy: "Milk, Eggs, Gluten, Nuts" },
-    { name: "Saudi coffee & cardamom", price: "400 SAR/kg", description: "A tribute to Saudi coffee, spiced with cardamom.", allergy: "Milk, Soya, Gluten" },
+    { name: "Espresso & vanilla", price: "400 SAR/kg", description: "Smooth espresso ganache paired with vanilla.", allergy: "Milk, Nuts", badge: "bestseller" },
+    { name: "Arabic Coffee with Cardamom / قهوة عربية بالهيل", price: "400 SAR/kg", description: "A tribute to Arabic coffee, spiced with warm cardamom — Cocora's signature specialty.", allergy: "Milk, Soya, Gluten", badge: "specialty" },
     { name: "Oriental caramel fudge", price: "400 SAR/kg", description: "A rich fudge with oriental caramel notes.", allergy: "Nuts, Sulphites" },
     { name: "Gianduja orange praline", price: "400 SAR/kg", description: "Classic gianduja praline brightened with orange.", allergy: "Milk, Nuts" },
     { name: "Dark chocolate wafer", price: "400 SAR/kg", description: "Crisp wafer layers coated in dark chocolate.", allergy: "Milk, Eggs, Gluten, Nuts, Soya" },
     { name: "Milk chocolate wafer", price: "400 SAR/kg", description: "Crisp wafer layers coated in milk chocolate.", allergy: "Milk, Soya, Gluten, Nuts" },
     { name: "Truffle chocolate", price: "400 SAR/kg", description: "A silky chocolate truffle with a soft, melting center.", allergy: "Dairy, Nuts" },
-    { name: "Dentelle", price: "450 SAR/kg", description: "Thin, lace-like chocolate dentelle in a delicate crisp form.", allergy: "Milk, Soya, Gluten" },
-    { name: "Crunchy mango & passion", price: "400 SAR/kg", description: "A crunchy praline layered with mango and passion fruit.", allergy: "Milk, Gluten", image: "images/mango-crunchy.png" },
+    { name: "Dentelle Crepe", price: "450 SAR/kg", description: "Thin, lace-like chocolate dentelle in a delicate crisp form.", allergy: "Milk, Soya, Gluten", badge: "bestseller" },
+    { name: "Crunchy mango & passion", price: "400 SAR/kg", description: "A crunchy praline layered with mango and passion fruit.", allergy: "Milk, Gluten", image: "images/mango-crunchy.png", badge: "bestseller" },
     { name: "Hazelnut gold rocher", price: "400 SAR/kg", description: "A golden hazelnut rocher with a crunchy chocolate shell.", allergy: "Dairy, Nuts" },
     { name: "Chocolate rolls", price: "450 SAR/kg", description: "Delicate rolled chocolate, finished by hand.", allergy: "Milk, Soya, Gluten" },
-    { name: "Mix nut bar", price: "By piece only", description: "A chocolate bar loaded with an assortment of nuts.", allergy: "Milk, Nuts" },
-    { name: "Gianduia hazelnut bar", price: "By piece only", description: "A gianduja hazelnut chocolate bar, rich and smooth.", allergy: "Milk, Soya, Nuts" },
     { name: "Chocolate slices with dried fruits", price: "400 SAR/kg", description: "Thin chocolate slices studded with dried fruits.", allergy: "Milk, dried fruit" },
     { name: "Chocolate slices with pistachio", price: "400 SAR/kg", description: "Thin chocolate slices topped with pistachio.", allergy: "Nuts" },
     { name: "Chocolate slices with almonds", price: "400 SAR/kg", description: "Thin chocolate slices topped with roasted almonds.", allergy: "Milk, Nuts, Almonds" },
     { name: "Chocolate slices", price: "400 SAR/kg", description: "Thin, elegant chocolate slices, Cocora's signature cut.", allergy: "Milk", image: "images/slice-camel.png" },
-    { name: "Pistachio fingers", price: "400 SAR/kg", description: "Chocolate fingers finished with pistachio.", allergy: "Milk, Nuts" },
-    { name: "Dry berries fingers", price: "400 SAR/kg", description: "Chocolate fingers layered with dried berries.", allergy: "Milk, Nuts" },
-    { name: "Chocolate almond dragee", price: "400 SAR/kg", description: "Crunchy roasted almonds dipped in smooth chocolate.", allergy: "Milk, Nuts" },
-    { name: "Chocolate hazelnut dragee", price: "400 SAR/kg", description: "Toasted hazelnuts finished with a crisp chocolate coating.", allergy: "Milk, Nuts" },
-    { name: "Chocolate pecan dragee", price: "400 SAR/kg", description: "Roasted pecans wrapped in a smooth chocolate shell.", allergy: "Milk, Nuts" },
-    { name: "Chocolate cashew dragee", price: "400 SAR/kg", description: "Whole roasted cashews coated in rich chocolate.", allergy: "Milk, Nuts" }
+    { name: "Salted Peanuts / فول سوداني مملح", price: "400 SAR/kg", description: "A salted peanut praline with a delicate crunch.", allergy: "Milk, Peanuts" },
+    { name: "Pecan and Caramel / بيكان وكراميل", price: "400 SAR/kg", description: "Roasted pecans folded into a soft caramel ganache.", allergy: "Milk, Nuts", badge: "bestseller" },
+    { name: "Wafer and Coffee / ويفر وقهوة", price: "400 SAR/kg", description: "Crisp wafer layers coated in a rich coffee ganache.", allergy: "Milk, Gluten, Soya" },
+    { name: "Pistachio Nuts / فستق", price: "400 SAR/kg", description: "A pistachio praline finished with roasted pistachio pieces.", allergy: "Milk, Nuts" }
   ];
 
   const overlay = document.getElementById('overlay');
@@ -835,10 +852,17 @@
     }
   }, { passive: true });
 
-  function buildCard(img, item, priceLabel, onOpen) {
+  const flavorBadges = {
+    bestseller: { label: "Best Seller", class: "badge-bestseller" },
+    specialty: { label: "Our Specialty", class: "badge-specialty" }
+  };
+
+  function buildCard(img, item, priceLabel, onOpen, badge) {
     const card = document.createElement('div');
     card.className = 'card';
+    const badgeHtml = badge ? `<span class="card-badge ${badge.class}">${badge.label}</span>` : '';
     card.innerHTML = `
+      ${badgeHtml}
       <img class="card-img" src="${img}" alt="${item.name}" loading="lazy">
       <div class="card-body">
         <p class="card-name">${item.name}</p>
@@ -864,7 +888,8 @@
   flavors.forEach((f) => {
     const img = f.image || flavorPlaceholder;
     const priceLabel = `<p class="card-unit">${f.price}</p>`;
-    const card = buildCard(img, f, priceLabel, () => openDetail(img, f, false));
+    const badge = f.badge ? flavorBadges[f.badge] : null;
+    const card = buildCard(img, f, priceLabel, () => openDetail(img, f, false), badge);
     flavorGrid.appendChild(card);
   });
 
