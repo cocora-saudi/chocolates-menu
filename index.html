@@ -158,11 +158,21 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.25);
   }
 
+  .card-media {
+    position: relative;
+  }
+
   .badge-left {
     left: 8px;
   }
 
   .badge-right {
+    right: 8px;
+  }
+
+  .badge-bottom-right {
+    top: auto;
+    bottom: 8px;
     right: 8px;
   }
 
@@ -929,7 +939,7 @@
     specialty: { label: "Our Specialty", class: "badge-specialty" }
   };
 
-  const SWISS_BADGE = { label: "سويسرية فاخرة", class: "badge-specialty", position: "right", dir: "rtl" };
+  const SWISS_BADGE = { label: "سويسرية فاخرة", class: "badge-specialty", position: "bottom-right", dir: "rtl" };
 
   function buildCard(img, item, priceLabel, onOpen, badges) {
     const card = document.createElement('div');
@@ -939,8 +949,10 @@
       return `<span class="card-badge ${b.class} badge-${b.position}"${dirAttr}>${b.label}</span>`;
     }).join('');
     card.innerHTML = `
-      ${badgeHtml}
-      <img class="card-img" src="${img}" alt="${item.name}" loading="lazy">
+      <div class="card-media">
+        <img class="card-img" src="${img}" alt="${item.name}" loading="lazy">
+        ${badgeHtml}
+      </div>
       <div class="card-body">
         <p class="card-name">${item.name}</p>
         ${priceLabel}
