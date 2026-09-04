@@ -148,7 +148,6 @@
   .card-badge {
     position: absolute;
     top: 8px;
-    left: 8px;
     z-index: 2;
     font-size: 0.6rem;
     font-weight: 700;
@@ -157,6 +156,14 @@
     padding: 3px 9px;
     border-radius: 999px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+
+  .badge-left {
+    left: 8px;
+  }
+
+  .badge-right {
+    right: 8px;
   }
 
   .badge-bestseller {
@@ -922,10 +929,15 @@
     specialty: { label: "Our Specialty", class: "badge-specialty" }
   };
 
-  function buildCard(img, item, priceLabel, onOpen, badge) {
+  const SWISS_BADGE = { label: "سويسرية فاخرة", class: "badge-specialty", position: "right", dir: "rtl" };
+
+  function buildCard(img, item, priceLabel, onOpen, badges) {
     const card = document.createElement('div');
     card.className = 'card';
-    const badgeHtml = badge ? `<span class="card-badge ${badge.class}">${badge.label}</span>` : '';
+    const badgeHtml = (badges || []).map((b) => {
+      const dirAttr = b.dir ? ` dir="${b.dir}"` : '';
+      return `<span class="card-badge ${b.class} badge-${b.position}"${dirAttr}>${b.label}</span>`;
+    }).join('');
     card.innerHTML = `
       ${badgeHtml}
       <img class="card-img" src="${img}" alt="${item.name}" loading="lazy">
@@ -953,8 +965,13 @@
   flavors.forEach((f) => {
     const img = f.image || flavorPlaceholder;
     const priceLabel = `<p class="card-unit">${f.price}</p>`;
-    const badge = f.badge ? flavorBadges[f.badge] : null;
-    const card = buildCard(img, f, priceLabel, () => openDetail(img, f, false), badge);
+    const badges = [];
+    if (f.badge) {
+      const b = flavorBadges[f.badge];
+      badges.push({ label: b.label, class: b.class, position: "left" });
+    }
+    badges.push(SWISS_BADGE);
+    const card = buildCard(img, f, priceLabel, () => openDetail(img, f, false), badges);
     flavorGrid.appendChild(card);
   });
 
