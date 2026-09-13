@@ -32,42 +32,46 @@ body {
   color: var(--cream);
 }
 
-/* ==============================
-   NATIONAL DAY SALE BAR
-============================== */
+/* =========================================
+   SAUDI NATIONAL DAY SALE TICKER
+========================================= */
 
 .national-day-bar {
   position: sticky;
   top: 0;
-  z-index: 300;
+  z-index: 500;
   width: 100%;
   overflow: hidden;
-  background: #b20f1b;
-  color: #fff;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 3px 14px rgba(0,0,0,0.18);
+  background: #b31322;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 3px 14px rgba(0,0,0,0.22);
 }
 
 .national-day-track {
   display: flex;
+  align-items: center;
   width: max-content;
-  min-width: 200%;
-  padding: 8px 0;
-  animation: nationalDayTicker 13s linear infinite;
+  animation: nationalTicker 18s linear infinite;
   will-change: transform;
 }
 
-.national-day-track span {
+.national-day-message {
   flex: 0 0 auto;
-  min-width: 50vw;
-  padding: 0 2.5rem;
+  padding: 8px 2.75rem;
+  white-space: nowrap;
+  color: #fff;
   font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  white-space: nowrap;
+  letter-spacing: 0.08em;
 }
 
-@keyframes nationalDayTicker {
+.national-day-message .arabic-sale {
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-inline-start: 18px;
+}
+
+@keyframes nationalTicker {
   from {
     transform: translateX(0);
   }
@@ -77,9 +81,9 @@ body {
   }
 }
 
-/* ==============================
+/* =========================================
    LOGO
-============================== */
+========================================= */
 
 .logo-wrap {
   padding: 2rem 1rem 0.5rem;
@@ -102,9 +106,9 @@ body {
   margin: 0 0 1.5rem;
 }
 
-/* ==============================
+/* =========================================
    CATEGORY NAVIGATION
-============================== */
+========================================= */
 
 .category-nav {
   display: flex;
@@ -163,9 +167,9 @@ section.category {
   color: var(--gold);
 }
 
-/* ==============================
+/* =========================================
    PRODUCT GRID
-============================== */
+========================================= */
 
 .grid {
   display: grid;
@@ -253,16 +257,16 @@ section.category {
   color: var(--burgundy);
 }
 
-/* ==============================
+/* =========================================
    PRODUCT DETAIL OVERLAY
-============================== */
+========================================= */
 
 .overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(20, 8, 12, 0.8);
-  z-index: 400;
+  background: rgba(20,8,12,0.8);
+  z-index: 600;
   align-items: flex-end;
   justify-content: center;
 }
@@ -361,11 +365,10 @@ section.category {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(74, 18, 32, 0.08);
+  background: rgba(74,18,32,0.08);
   border: 1px solid var(--border);
   color: var(--burgundy);
   font-size: 1rem;
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,9 +385,9 @@ section.category {
   display: inline;
 }
 
-/* ==============================
+/* =========================================
    ORDER BUTTONS
-============================== */
+========================================= */
 
 .order-buttons {
   display: flex;
@@ -416,9 +419,9 @@ section.category {
   flex-shrink: 0;
 }
 
-/* ==============================
+/* =========================================
    FOOTER
-============================== */
+========================================= */
 
 footer {
   text-align: center;
@@ -462,9 +465,9 @@ footer {
   color: var(--text-secondary);
 }
 
-/* ==============================
-   LANDING PAGE
-============================== */
+/* =========================================
+   LANDING
+========================================= */
 
 .view[hidden] {
   display: none;
@@ -533,8 +536,7 @@ footer {
 }
 
 @keyframes tapPulse {
-  0%,
-  100% {
+  0%,100% {
     transform: scale(1);
     opacity: 0.8;
   }
@@ -545,9 +547,9 @@ footer {
   }
 }
 
-/* ==============================
-   BACK BUTTONS
-============================== */
+/* =========================================
+   BACK BUTTON
+========================================= */
 
 .view-toolbar {
   max-width: 760px;
@@ -568,9 +570,9 @@ footer {
   cursor: pointer;
 }
 
-/* ==============================
-   WEDDING PACKAGES
-============================== */
+/* =========================================
+   PACKAGES
+========================================= */
 
 .package-main {
   max-width: 760px;
@@ -590,61 +592,69 @@ footer {
   display: flex;
   gap: 8px;
   max-width: 420px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 12px;
   padding: 0 1rem;
 }
 
 .package-tab {
   flex: 1;
   padding: 10px 12px;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.24);
   border-radius: 999px;
   background: transparent;
   color: var(--cream);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-
-  opacity: 0.42;
+  opacity: 0.38;
 
   transition:
     opacity 0.22s ease,
     transform 0.22s ease,
     border-color 0.22s ease,
     box-shadow 0.22s ease,
-    background 0.22s ease,
-    color 0.22s ease;
+    background 0.22s ease;
 }
-
-/* ACTIVE TOGGLE = WHITE LIGHT */
 
 .package-tab.active {
   opacity: 1;
-  background: rgba(255,255,255,0.08);
   color: #fff;
+  background: rgba(255,255,255,0.08);
   border-color: #fff;
 
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.7),
-    0 0 18px rgba(255,255,255,0.35);
+    0 0 0 1px rgba(255,255,255,0.75),
+    0 0 18px rgba(255,255,255,0.42);
 
   transform: translateY(-1px);
 }
 
+/* ALWAYS DIRECTLY BELOW TOGGLES */
+
 .package-delivery-note {
   text-align: center;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.79rem;
+  font-weight: 700;
   color: var(--gold);
 
-  border: 1px solid rgba(201,161,90,0.45);
+  border: 1px solid rgba(201,161,90,0.42);
   background: rgba(201,161,90,0.08);
 
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 9px 12px;
 
   max-width: 520px;
-  margin: 0 auto 16px;
+
+  margin:
+    0 auto
+    20px;
+}
+
+.package-delivery-note .delivery-ar {
+  display: block;
+  margin-top: 3px;
+  color: var(--cream);
+  font-weight: 600;
 }
 
 .package-grid {
@@ -665,7 +675,7 @@ footer {
   cursor: pointer;
 
   transform: scale(0.965);
-  opacity: 0.86;
+  opacity: 0.84;
 
   transition:
     transform 0.32s cubic-bezier(.2,.8,.2,1),
@@ -677,8 +687,6 @@ footer {
 
   will-change: transform;
 }
-
-/* CARD NEAREST CENTER OF SCREEN */
 
 .package-card.package-focus {
   transform: scale(1.045);
@@ -726,12 +734,13 @@ footer {
 
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .package-specs li {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
 
   font-size: 0.85rem;
   color: var(--text-primary);
@@ -753,9 +762,7 @@ footer {
 .price-note {
   font-size: 0.75rem;
   font-weight: 400;
-
   color: var(--text-secondary);
-
   margin-inline-start: 4px;
 }
 
@@ -773,8 +780,6 @@ footer {
   font-weight: 700;
 
   text-align: center;
-
-  letter-spacing: 0.01em;
 }
 
 .package-cta {
@@ -787,9 +792,9 @@ footer {
   margin: 0 auto;
 }
 
-/* ==============================
-   PACKAGE DETAIL PAGE
-============================== */
+/* =========================================
+   ARABIC PACKAGE DETAIL
+========================================= */
 
 .package-detail-main {
   max-width: 760px;
@@ -798,7 +803,7 @@ footer {
 }
 
 .package-detail-hero {
-  background: linear-gradient(145deg, #fffdf9, #f7efe3);
+  background: linear-gradient(145deg,#fffdf9,#f7efe3);
   color: var(--text-primary);
 
   border-radius: 22px;
@@ -816,12 +821,10 @@ footer {
 
   color: var(--gold);
 
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
 
-  letter-spacing: 0.12em;
-
-  text-transform: uppercase;
+  text-align: right;
 }
 
 .package-detail-title {
@@ -829,24 +832,28 @@ footer {
 
   color: var(--burgundy);
 
-  font-size: clamp(1.55rem, 5vw, 2.2rem);
+  font-size: clamp(1.55rem,5vw,2.2rem);
 
-  line-height: 1.1;
+  line-height: 1.35;
+
+  text-align: right;
 }
 
 .package-detail-price {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
 
   color: var(--burgundy);
 
   font-size: 1.15rem;
   font-weight: 800;
+
+  text-align: right;
 }
 
 .package-detail-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
 
   gap: 10px;
 
@@ -861,6 +868,8 @@ footer {
   border-radius: 14px;
 
   padding: 12px;
+
+  text-align: right;
 }
 
 .package-detail-stat span {
@@ -885,6 +894,8 @@ footer {
   border-top: 1px solid var(--border);
 
   padding-top: 1rem;
+
+  text-align: right;
 }
 
 .package-detail-info h3 {
@@ -898,11 +909,12 @@ footer {
 .package-detail-info ul {
   margin: 0;
 
-  padding-inline-start: 1.2rem;
+  padding-right: 1.2rem;
+  padding-left: 0;
 
   color: var(--text-secondary);
 
-  line-height: 1.6;
+  line-height: 1.8;
 
   font-size: 0.9rem;
 }
@@ -922,7 +934,9 @@ footer {
 
   font-size: 0.88rem;
 
-  line-height: 1.55;
+  line-height: 1.75;
+
+  text-align: right;
 }
 
 .package-detail-cta {
@@ -934,21 +948,28 @@ footer {
   font-size: 0.88rem;
 }
 
-/* ==============================
+.package-detail-back {
+  direction: rtl;
+}
+
+/* =========================================
    MOBILE
-============================== */
+========================================= */
 
 @media (max-width: 520px) {
-  .national-day-track span {
-    min-width: 75vw;
+
+  .national-day-message {
+    padding: 8px 1.75rem;
   }
 
   .package-detail-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .national-day-track {
     animation-duration: 40s;
   }
@@ -956,28 +977,89 @@ footer {
   .package-card {
     transition: none;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- SAUDI NATIONAL DAY SALE -->
+<!-- ========================================
+     NATIONAL DAY TICKER
+======================================== -->
+
 <div
   class="national-day-bar"
   role="status"
-  aria-label="Saudi National Day sale announcement"
+  aria-label="Saudi National Day promotion"
 >
-  <div class="national-day-track" aria-hidden="true">
-    <span>ON SALE FOR SAUDI NATIONAL DAY</span>
-    <span>ON SALE FOR SAUDI NATIONAL DAY</span>
-    <span>ON SALE FOR SAUDI NATIONAL DAY</span>
-    <span>ON SALE FOR SAUDI NATIONAL DAY</span>
+
+  <div class="national-day-track">
+
+    <span class="national-day-message">
+
+      ON SALE FOR SAUDI NATIONAL DAY
+
+      <span
+        class="arabic-sale"
+        dir="rtl"
+      >
+        عروض خاصة بمناسبة اليوم الوطني السعودي
+      </span>
+
+    </span>
+
+
+    <span class="national-day-message">
+
+      ON SALE FOR SAUDI NATIONAL DAY
+
+      <span
+        class="arabic-sale"
+        dir="rtl"
+      >
+        عروض خاصة بمناسبة اليوم الوطني السعودي
+      </span>
+
+    </span>
+
+
+    <span class="national-day-message">
+
+      ON SALE FOR SAUDI NATIONAL DAY
+
+      <span
+        class="arabic-sale"
+        dir="rtl"
+      >
+        عروض خاصة بمناسبة اليوم الوطني السعودي
+      </span>
+
+    </span>
+
+
+    <span class="national-day-message">
+
+      ON SALE FOR SAUDI NATIONAL DAY
+
+      <span
+        class="arabic-sale"
+        dir="rtl"
+      >
+        عروض خاصة بمناسبة اليوم الوطني السعودي
+      </span>
+
+    </span>
+
   </div>
+
 </div>
 
 
-<!-- LOGO -->
+<!-- ========================================
+     LOGO
+======================================== -->
+
 <div
   class="logo-wrap"
   id="logoHome"
@@ -985,24 +1067,35 @@ footer {
   tabindex="0"
   aria-label="Cocora home"
 >
+
   <img
     src="images/cocora-logo.jpg"
     alt="Cocora — The Saudi Touch of Chocolate Art"
   >
+
 </div>
 
 
-<!-- ==============================
+<!-- ========================================
      LANDING
-================================ -->
+======================================== -->
 
-<div class="view" id="view-landing">
+<div
+  class="view"
+  id="view-landing"
+>
 
-  <p class="tagline">Choose an Option</p>
+  <p class="tagline">
+    Choose an Option
+  </p>
 
-  <p class="tagline" dir="rtl">
+  <p
+    class="tagline"
+    dir="rtl"
+  >
     اختر خيارًا
   </p>
+
 
   <div class="landing-choices">
 
@@ -1023,7 +1116,10 @@ footer {
           Chocolate Menu
         </span>
 
-        <span class="choice-ar" dir="rtl">
+        <span
+          class="choice-ar"
+          dir="rtl"
+        >
           قائمة الشوكولاتة
         </span>
 
@@ -1044,7 +1140,7 @@ footer {
 
       <img
         src="images/wedding-sweets.jpeg"
-        alt="Party &amp; Wedding Packages"
+        alt="Party and Wedding Packages"
       >
 
       <div class="choice-card-body">
@@ -1053,7 +1149,10 @@ footer {
           Party &amp; Wedding Packages
         </span>
 
-        <span class="choice-ar" dir="rtl">
+        <span
+          class="choice-ar"
+          dir="rtl"
+        >
           باقات المناسبات والأعراس
         </span>
 
@@ -1070,11 +1169,15 @@ footer {
 </div>
 
 
-<!-- ==============================
-     CHOCOLATE MENU
-================================ -->
+<!-- ========================================
+     MENU
+======================================== -->
 
-<div class="view" id="view-menu" hidden>
+<div
+  class="view"
+  id="view-menu"
+  hidden
+>
 
   <div class="view-toolbar">
 
@@ -1279,9 +1382,9 @@ footer {
 </div>
 
 
-<!-- ==============================
-     WEDDING PACKAGES
-================================ -->
+<!-- ========================================
+     PACKAGES MAIN PAGE
+======================================== -->
 
 <div
   class="view"
@@ -1313,6 +1416,8 @@ footer {
   </p>
 
 
+  <!-- PACKAGE TOGGLE -->
+
   <div
     class="package-tabs"
     role="tablist"
@@ -1338,35 +1443,29 @@ footer {
   </div>
 
 
-  <main class="package-main">
+  <!-- ALWAYS BELOW BOTH TOGGLES -->
 
-    <!-- CHOCOLATE + SAVORY -->
+  <p class="package-delivery-note">
+
+    Delivery is currently free within Riyadh City
+
+    <span
+      class="delivery-ar"
+      dir="rtl"
+    >
+      التوصيل مجانًا حاليًا داخل مدينة الرياض
+    </span>
+
+  </p>
+
+
+  <main class="package-main">
 
     <div
       class="package-grid"
       id="package-grid-combo"
     ></div>
 
-
-    <!-- DELIVERY NOTE - ALWAYS VISIBLE FOR BOTH -->
-
-    <p
-      class="package-delivery-note"
-      id="package-delivery-note"
-    >
-
-      Delivery is currently free within Riyadh City
-
-      <br>
-
-      <span dir="rtl">
-        التوصيل مجانًا حاليًا داخل مدينة الرياض
-      </span>
-
-    </p>
-
-
-    <!-- CHOCOLATE ONLY -->
 
     <div
       class="package-grid"
@@ -1384,15 +1483,6 @@ footer {
         rel="noopener"
       >
 
-        <svg
-          class="order-btn-icon"
-          viewBox="0 0 24 24"
-          fill="#25D366"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M12.01 2C6.49 2 2 6.48 2 12c0 1.77.46 3.45 1.32 4.94L2 22l5.2-1.36A9.96 9.96 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm5.75 14.15c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.44-.72-2.9-1.15-4.76-4.1-4.9-4.29-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .9 2.14.07.15.12.32.02.51-.1.19-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.26 1.64 2.04 1.13.99 2.08 1.3 2.37 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.28.38-.24.63-.14.26.1 1.66.78 1.94.92.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/>
-        </svg>
-
         للاستفسار والحجز عبر واتساب
 
       </a>
@@ -1404,24 +1494,25 @@ footer {
 </div>
 
 
-<!-- ==============================
-     INDIVIDUAL PACKAGE DETAIL PAGE
-================================ -->
+<!-- ========================================
+     PACKAGE DETAIL PAGE
+======================================== -->
 
 <div
   class="view"
   id="view-package-detail"
   hidden
+  dir="rtl"
 >
 
   <div class="view-toolbar">
 
     <button
       type="button"
-      class="back-btn"
+      class="back-btn package-detail-back"
       id="packageDetailBack"
     >
-      ← Back to Packages
+      → العودة إلى الباقات
     </button>
 
   </div>
@@ -1432,7 +1523,7 @@ footer {
     <article class="package-detail-hero">
 
       <p class="package-detail-eyebrow">
-        Event &amp; Wedding Package
+        تفاصيل باقة المناسبات والأعراس
       </p>
 
 
@@ -1457,22 +1548,22 @@ footer {
       <div class="package-detail-info">
 
         <h3>
-          Package flexibility
+          خيارات وتخصيص الباقة
         </h3>
 
 
         <ul>
 
           <li>
-            Customers can choose from any available serving trays for the package.
+            يمكن للعميل اختيار أي من صواني التقديم المتوفرة ضمن الباقة.
           </li>
 
           <li>
-            Customers can choose and customize the chocolate selection on each tray.
+            يمكن للعميل اختيار وتخصيص أصناف الشوكولاتة لكل صينية حسب الأصناف المتوفرة.
           </li>
 
           <li>
-            Delivery is currently free within Riyadh City.
+            التوصيل مجانًا حاليًا داخل مدينة الرياض.
           </li>
 
         </ul>
@@ -1480,9 +1571,8 @@ footer {
 
         <p class="package-service-note">
 
-          Wedding Sweets and Girl Server are available separately at an additional cost.
-          Please contact Customer Service for pricing if you would like to add these
-          services to your package.
+          حلويات الأعراس وخدمة التقديم متوفرتان بشكل منفصل مقابل رسوم إضافية.
+          يرجى التواصل مع خدمة العملاء للاستفسار عن الأسعار وإضافتهما إلى الباقة عند الرغبة.
 
         </p>
 
@@ -1497,7 +1587,7 @@ footer {
           target="_blank"
           rel="noopener"
         >
-          Inquire / Book via WhatsApp
+          للاستفسار والحجز عبر واتساب
         </a>
 
       </div>
@@ -1509,9 +1599,9 @@ footer {
 </div>
 
 
-<!-- ==============================
+<!-- ========================================
      FOOTER
-================================ -->
+======================================== -->
 
 <footer>
 
@@ -1624,9 +1714,9 @@ footer {
 </footer>
 
 
-<!-- ==============================
+<!-- ========================================
      PRODUCT DETAIL OVERLAY
-================================ -->
+======================================== -->
 
 <div
   class="overlay"
@@ -1702,20 +1792,7 @@ footer {
           target="_blank"
           rel="noopener"
         >
-
-          <svg
-            class="order-btn-icon"
-            viewBox="0 0 24 24"
-            fill="#25D366"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-
-            <path d="M12.01 2C6.49 2 2 6.48 2 12c0 1.77.46 3.45 1.32 4.94L2 22l5.2-1.36A9.96 9.96 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm5.75 14.15c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.44-.72-2.9-1.15-4.76-4.1-4.9-4.29-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .9 2.14.07.15.12.32.02.51-.1.19-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.26 1.64 2.04 1.13.99 2.08 1.3 2.37 1.45.29.15.46.13.63-.08.17-.2.72-.84.92-1.13.19-.28.38-.24.63-.14.26.1 1.66.78 1.94.92.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/>
-
-          </svg>
-
           For Orders Call/Message Cocora
-
         </a>
 
 
@@ -1765,9 +1842,9 @@ footer {
 
 <script>
 
-/* =========================================================
+/* =========================================
    PRODUCTS
-========================================================= */
+========================================= */
 
 const categories = {
 
@@ -1954,9 +2031,9 @@ const categories = {
 };
 
 
-/* =========================================================
+/* =========================================
    GANACHE & PRALINE
-========================================================= */
+========================================= */
 
 const flavorPlaceholder =
   "images/flavor-placeholder.jpg";
@@ -2164,9 +2241,9 @@ const flavors = [
 ];
 
 
-/* =========================================================
-   PRODUCT DETAILS
-========================================================= */
+/* =========================================
+   PRODUCT DETAIL SYSTEM
+========================================= */
 
 const overlay =
   document.getElementById("overlay");
@@ -2241,9 +2318,7 @@ function openDetail(
     allergenText.textContent =
       "Allergies: " + item.allergy;
 
-    allergenText.classList.remove(
-      "show"
-    );
+    allergenText.classList.remove("show");
 
     detailAllergyRow.style.display =
       "flex";
@@ -2268,9 +2343,7 @@ function openDetail(
   );
 
 
-  overlay.classList.add(
-    "open"
-  );
+  overlay.classList.add("open");
 
   document.body.style.overflow =
     "hidden";
@@ -2280,9 +2353,7 @@ function openDetail(
 
 function closeDetail() {
 
-  overlay.classList.remove(
-    "open"
-  );
+  overlay.classList.remove("open");
 
   document.body.style.overflow =
     "";
@@ -2310,12 +2381,10 @@ overlay.addEventListener(
 );
 
 
-/* Swipe right to close product */
+/* SWIPE TO CLOSE */
 
 const detailSheet =
-  document.querySelector(
-    ".detail-sheet"
-  );
+  document.querySelector(".detail-sheet");
 
 let touchStartX = 0;
 let touchStartY = 0;
@@ -2377,9 +2446,9 @@ detailSheet.addEventListener(
 );
 
 
-/* =========================================================
-   PRODUCT BADGES
-========================================================= */
+/* =========================================
+   BADGES
+========================================= */
 
 const flavorBadges = {
 
@@ -2409,9 +2478,9 @@ const SWISS_BADGE = {
 };
 
 
-/* =========================================================
+/* =========================================
    BUILD PRODUCT CARDS
-========================================================= */
+========================================= */
 
 function buildCard(
   img,
@@ -2422,9 +2491,8 @@ function buildCard(
 ) {
 
   const card =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
+
 
   card.className =
     "card";
@@ -2437,16 +2505,18 @@ function buildCard(
 
           const dirAttr =
             b.dir
-              ? ` dir="${b.dir}"`
+              ? `dir="${b.dir}"`
               : "";
 
           return `
+
             <span
               class="card-badge ${b.class} badge-${b.position}"
               ${dirAttr}
             >
               ${b.label}
             </span>
+
           `;
 
         }
@@ -2494,13 +2564,14 @@ function buildCard(
 }
 
 
-/* BUILD NORMAL CATEGORIES */
+/* NORMAL PRODUCT CATEGORIES */
 
 Object.keys(categories).forEach(
   (key) => {
 
     const cat =
       categories[key];
+
 
     const grid =
       document.getElementById(
@@ -2517,9 +2588,11 @@ Object.keys(categories).forEach(
 
 
         const priceLabel = `
+
           <p class="card-price">
             ${item.price}
           </p>
+
         `;
 
 
@@ -2537,9 +2610,7 @@ Object.keys(categories).forEach(
           );
 
 
-        grid.appendChild(
-          card
-        );
+        grid.appendChild(card);
 
       }
     );
@@ -2548,12 +2619,10 @@ Object.keys(categories).forEach(
 );
 
 
-/* BUILD FLAVOR CARDS */
+/* FLAVOR PRODUCTS */
 
 const flavorGrid =
-  document.getElementById(
-    "grid-flavors"
-  );
+  document.getElementById("grid-flavors");
 
 
 flavors.forEach(
@@ -2565,9 +2634,11 @@ flavors.forEach(
 
 
     const priceLabel = `
+
       <p class="card-unit">
         ${f.price}
       </p>
+
     `;
 
 
@@ -2577,9 +2648,7 @@ flavors.forEach(
     if (f.badge) {
 
       const b =
-        flavorBadges[
-          f.badge
-        ];
+        flavorBadges[f.badge];
 
 
       badges.push({
@@ -2595,9 +2664,7 @@ flavors.forEach(
     }
 
 
-    badges.push(
-      SWISS_BADGE
-    );
+    badges.push(SWISS_BADGE);
 
 
     const card =
@@ -2621,24 +2688,15 @@ flavors.forEach(
       );
 
 
-    flavorGrid.appendChild(
-      card
-    );
+    flavorGrid.appendChild(card);
 
   }
 );
 
 
-/* =========================================================
-   WEDDING PACKAGES
-========================================================= */
-
-/*
-  Chocolate + Savory Packages
-
-  Chocolate Staff is included from
-  100 pax and above.
-*/
+/* =========================================
+   CHOCOLATE + SAVORY PACKAGES
+========================================= */
 
 const packages = [
 
@@ -2647,7 +2705,7 @@ const packages = [
     extras: null,
     chocolateTrays: 2,
     savoryTrays: 1,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 1530
   },
 
@@ -2656,61 +2714,63 @@ const packages = [
     extras: "توصيل للشوكولاتة والموالح",
     chocolateTrays: 4,
     savoryTrays: 2,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 3060
   },
 
   {
     pax: 100,
-    extras: "طاقم الشوكولاتة + توصيل للشوكولاتة والموالح",
+    extras: "طاقم تقديم الشوكولاتة + التوصيل",
     chocolateTrays: 8,
     savoryTrays: 4,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 6120
   },
 
   {
     pax: 150,
-    extras: "طاقم الشوكولاتة + توصيل للشوكولاتة والموالح",
+    extras: "طاقم تقديم الشوكولاتة + التوصيل",
     chocolateTrays: 10,
     savoryTrays: 5,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 7650
   },
 
   {
     pax: 200,
-    extras: "طاقم الشوكولاتة + توصيل للشوكولاتة والموالح",
+    extras: "طاقم تقديم الشوكولاتة + التوصيل",
     chocolateTrays: 15,
     savoryTrays: 8,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 11640
   },
 
   {
     pax: 300,
-    extras: "طاقم الشوكولاتة + توصيل للشوكولاتة والموالح",
+    extras: "طاقم تقديم الشوكولاتة + التوصيل",
     chocolateTrays: 20,
     savoryTrays: 10,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 15300
   },
 
   {
     pax: 400,
-    extras: "طاقم الشوكولاتة + توصيل للشوكولاتة والموالح",
+    extras: "طاقم تقديم الشوكولاتة + التوصيل",
     chocolateTrays: 28,
     savoryTrays: 16,
-    kilo: "كيلو ونص",
+    kiloPerTray: "١٫٥ كيلو لكل صينية",
     price: 22080
   }
 
 ];
 
 
-/* =========================================================
+/* =========================================
    CHOCOLATE ONLY PACKAGES
-========================================================= */
+
+   All trays = 1.5 kg chocolate per tray
+========================================= */
 
 const chocolateOnlyPackages = [
 
@@ -2718,7 +2778,8 @@ const chocolateOnlyPackages = [
     pax: 30,
     extras: null,
     trays: 4,
-    kilo: 4,
+    kiloPerTray: 1.5,
+    kilo: 6,
     price: 1600
   },
 
@@ -2726,46 +2787,52 @@ const chocolateOnlyPackages = [
     pax: 50,
     extras: null,
     trays: 6,
+    kiloPerTray: 1.5,
     kilo: 9,
     price: 3600
   },
 
   {
     pax: 100,
-    extras: "طاقم الشوكولاتة",
+    extras: "طاقم تقديم الشوكولاتة",
     trays: 10,
+    kiloPerTray: 1.5,
     kilo: 15,
     price: 6000
   },
 
   {
     pax: 150,
-    extras: "طاقم الشوكولاتة",
+    extras: "طاقم تقديم الشوكولاتة",
     trays: 15,
+    kiloPerTray: 1.5,
     kilo: 22.5,
     price: 9000
   },
 
   {
     pax: 200,
-    extras: "طاقم الشوكولاتة",
+    extras: "طاقم تقديم الشوكولاتة",
     trays: 20,
+    kiloPerTray: 1.5,
     kilo: 30,
     price: 12000
   },
 
   {
     pax: 300,
-    extras: "طاقم الشوكولاتة",
+    extras: "طاقم تقديم الشوكولاتة",
     trays: 25,
+    kiloPerTray: 1.5,
     kilo: 37.5,
     price: 15000
   },
 
   {
     pax: 400,
-    extras: "طاقم الشوكولاتة",
+    extras: "طاقم تقديم الشوكولاتة",
     trays: 30,
+    kiloPerTray: 1.5,
     kilo: 45,
     price: 18000
   }
@@ -2773,32 +2840,24 @@ const chocolateOnlyPackages = [
 ];
 
 
-/* =========================================================
+/* =========================================
    PACKAGE DETAIL ELEMENTS
-========================================================= */
+========================================= */
 
 const packageDetailBack =
-  document.getElementById(
-    "packageDetailBack"
-  );
+  document.getElementById("packageDetailBack");
 
 const packageDetailTitle =
-  document.getElementById(
-    "packageDetailTitle"
-  );
+  document.getElementById("packageDetailTitle");
 
 const packageDetailPrice =
-  document.getElementById(
-    "packageDetailPrice"
-  );
+  document.getElementById("packageDetailPrice");
 
 const packageDetailGrid =
-  document.getElementById(
-    "packageDetailGrid"
-  );
+  document.getElementById("packageDetailGrid");
 
 
-function stat(
+function packageStat(
   label,
   value
 ) {
@@ -2822,9 +2881,9 @@ function stat(
 }
 
 
-/* =========================================================
-   OPEN INDIVIDUAL PACKAGE
-========================================================= */
+/* =========================================
+   OPEN PACKAGE DETAIL
+========================================= */
 
 function openPackageDetail(
   type,
@@ -2836,39 +2895,42 @@ function openPackageDetail(
 
 
   packageDetailTitle.textContent =
-    `${pkg.pax} Person ${
-      isCombo
-        ? "Chocolate & Savory"
-        : "Chocolate Only"
-    } Package`;
+    isCombo
+      ? `باقة شوكولاتة وموالح لـ ${pkg.pax} شخص`
+      : `باقة شوكولاتة فقط لـ ${pkg.pax} شخص`;
 
 
-  packageDetailPrice.innerHTML =
-    `
-      ${pkg.price.toLocaleString("en-US")} SAR
-      <span class="price-note">
-        before discount
-      </span>
-    `;
+  packageDetailPrice.innerHTML = `
+
+    ${pkg.price.toLocaleString("en-US")} ريال
+
+    <span class="price-note">
+      قبل الخصم
+    </span>
+
+  `;
 
 
-  const stats = [
+  const stats = [];
 
-    stat(
-      "Guests",
-      `${pkg.pax} pax`
+
+  stats.push(
+
+    packageStat(
+      "عدد الضيوف",
+      `${pkg.pax} شخص`
     )
 
-  ];
+  );
 
 
   if (isCombo) {
 
     stats.push(
 
-      stat(
-        "Chocolate trays",
-        `${pkg.chocolateTrays} trays`
+      packageStat(
+        "صواني الشوكولاتة",
+        `${pkg.chocolateTrays} صينية`
       )
 
     );
@@ -2876,9 +2938,9 @@ function openPackageDetail(
 
     stats.push(
 
-      stat(
-        "Savory trays",
-        `${pkg.savoryTrays} trays`
+      packageStat(
+        "صواني الموالح",
+        `${pkg.savoryTrays} صينية`
       )
 
     );
@@ -2886,9 +2948,9 @@ function openPackageDetail(
 
     stats.push(
 
-      stat(
-        "Chocolate quantity",
-        pkg.kilo
+      packageStat(
+        "كمية الشوكولاتة لكل صينية",
+        "١٫٥ كيلو"
       )
 
     );
@@ -2897,9 +2959,9 @@ function openPackageDetail(
 
     stats.push(
 
-      stat(
-        "Chocolate trays",
-        `${pkg.trays} trays`
+      packageStat(
+        "عدد صواني الشوكولاتة",
+        `${pkg.trays} صينية`
       )
 
     );
@@ -2907,9 +2969,19 @@ function openPackageDetail(
 
     stats.push(
 
-      stat(
-        "Chocolate quantity",
-        `${pkg.kilo} kg`
+      packageStat(
+        "كمية الشوكولاتة لكل صينية",
+        "١٫٥ كيلو"
+      )
+
+    );
+
+
+    stats.push(
+
+      packageStat(
+        "إجمالي كمية الشوكولاتة",
+        `${pkg.kilo} كيلو`
       )
 
     );
@@ -2917,19 +2989,13 @@ function openPackageDetail(
   }
 
 
-  /*
-    Chocolate Staff:
-    included automatically from
-    100 pax and above.
-  */
-
   if (pkg.pax >= 100) {
 
     stats.push(
 
-      stat(
-        "Chocolate Staff",
-        "Included"
+      packageStat(
+        "طاقم تقديم الشوكولاتة",
+        "مشمول ضمن الباقة"
       )
 
     );
@@ -2938,9 +3004,9 @@ function openPackageDetail(
 
     stats.push(
 
-      stat(
-        "Chocolate Staff",
-        "Not included"
+      packageStat(
+        "طاقم تقديم الشوكولاتة",
+        "غير مشمول"
       )
 
     );
@@ -2952,16 +3018,14 @@ function openPackageDetail(
     stats.join("");
 
 
-  showView(
-    "packageDetail"
-  );
+  showView("packageDetail");
 
 }
 
 
-/* =========================================================
-   BUILD CHOCOLATE + SAVORY PACKAGE CARDS
-========================================================= */
+/* =========================================
+   BUILD COMBO PACKAGE CARDS
+========================================= */
 
 const packageGridCombo =
   document.getElementById(
@@ -2973,9 +3037,7 @@ packages.forEach(
   (pkg) => {
 
     const card =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
 
     card.className =
@@ -2994,7 +3056,7 @@ packages.forEach(
           pkg.extras
             ? `
               <span class="package-extras">
-                + ${pkg.extras}
+                ${pkg.extras}
               </span>
             `
             : ""
@@ -3011,7 +3073,7 @@ packages.forEach(
             صواني الشوكولاتة
           </span>
 
-          <span class="spec-value">
+          <span>
             ${pkg.chocolateTrays} صينية
           </span>
 
@@ -3024,7 +3086,7 @@ packages.forEach(
             صواني الموالح
           </span>
 
-          <span class="spec-value">
+          <span>
             ${pkg.savoryTrays} صينية
           </span>
 
@@ -3034,11 +3096,11 @@ packages.forEach(
         <li>
 
           <span class="spec-label">
-            الكيلو
+            كمية الشوكولاتة لكل صينية
           </span>
 
-          <span class="spec-value">
-            ${pkg.kilo}
+          <span>
+            ١٫٥ كيلو
           </span>
 
         </li>
@@ -3059,7 +3121,7 @@ packages.forEach(
 
 
       <span class="package-open-hint">
-        Tap to view package details →
+        اضغط لعرض تفاصيل الباقة
       </span>
 
     `;
@@ -3067,16 +3129,9 @@ packages.forEach(
 
     card.tabIndex = 0;
 
-
     card.setAttribute(
       "role",
       "button"
-    );
-
-
-    card.setAttribute(
-      "aria-label",
-      `View ${pkg.pax} person Chocolate & Savory package details`
     );
 
 
@@ -3115,17 +3170,15 @@ packages.forEach(
     );
 
 
-    packageGridCombo.appendChild(
-      card
-    );
+    packageGridCombo.appendChild(card);
 
   }
 );
 
 
-/* =========================================================
-   BUILD CHOCOLATE ONLY PACKAGE CARDS
-========================================================= */
+/* =========================================
+   BUILD CHOCOLATE ONLY CARDS
+========================================= */
 
 const packageGridChocolate =
   document.getElementById(
@@ -3137,9 +3190,7 @@ chocolateOnlyPackages.forEach(
   (pkg) => {
 
     const card =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
 
     card.className =
@@ -3158,7 +3209,7 @@ chocolateOnlyPackages.forEach(
           pkg.extras
             ? `
               <span class="package-extras">
-                + ${pkg.extras}
+                ${pkg.extras}
               </span>
             `
             : ""
@@ -3175,7 +3226,7 @@ chocolateOnlyPackages.forEach(
             عدد الصواني
           </span>
 
-          <span class="spec-value">
+          <span>
             ${pkg.trays} صينية
           </span>
 
@@ -3185,10 +3236,23 @@ chocolateOnlyPackages.forEach(
         <li>
 
           <span class="spec-label">
-            عدد الكيلو
+            كمية الشوكولاتة لكل صينية
           </span>
 
-          <span class="spec-value">
+          <span>
+            ١٫٥ كيلو
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <span class="spec-label">
+            إجمالي كمية الشوكولاتة
+          </span>
+
+          <span>
             ${pkg.kilo} كيلو
           </span>
 
@@ -3210,7 +3274,7 @@ chocolateOnlyPackages.forEach(
 
 
       <span class="package-open-hint">
-        Tap to view package details →
+        اضغط لعرض تفاصيل الباقة
       </span>
 
     `;
@@ -3218,16 +3282,9 @@ chocolateOnlyPackages.forEach(
 
     card.tabIndex = 0;
 
-
     card.setAttribute(
       "role",
       "button"
-    );
-
-
-    card.setAttribute(
-      "aria-label",
-      `View ${pkg.pax} person Chocolate Only package details`
     );
 
 
@@ -3266,23 +3323,15 @@ chocolateOnlyPackages.forEach(
     );
 
 
-    packageGridChocolate.appendChild(
-      card
-    );
+    packageGridChocolate.appendChild(card);
 
   }
 );
 
 
-/* =========================================================
-   PACKAGE TOGGLE
-========================================================= */
-
-const packageDeliveryNote =
-  document.getElementById(
-    "package-delivery-note"
-  );
-
+/* =========================================
+   PACKAGE TOGGLES
+========================================= */
 
 const packageTabs =
   document.querySelectorAll(
@@ -3321,15 +3370,6 @@ packageTabs.forEach(
           target !== "chocolate";
 
 
-        /*
-          Free delivery note stays visible
-          for both package options.
-        */
-
-        packageDeliveryNote.hidden =
-          false;
-
-
         requestAnimationFrame(
           updatePackageFocus
         );
@@ -3341,45 +3381,18 @@ packageTabs.forEach(
 );
 
 
-/* =========================================================
-   PACKAGE DETAIL BACK BUTTON
-========================================================= */
-
-packageDetailBack.addEventListener(
-  "click",
-  () => {
-
-    showView(
-      "packages"
-    );
-
-
-    requestAnimationFrame(
-      updatePackageFocus
-    );
-
-  }
-);
-
-
-/* =========================================================
-   CENTER PACKAGE ZOOM EFFECT
-========================================================= */
+/* =========================================
+   CENTERED PACKAGE ZOOM
+========================================= */
 
 let packageFocusRaf = null;
 
 
 function updatePackageFocus() {
 
-  const visibleGrid =
-    !packageGridCombo.hidden
-      ? packageGridCombo
-      : packageGridChocolate;
-
-
   if (
-    !visibleGrid ||
-    views?.packages?.hidden
+    !views ||
+    views.packages.hidden
   ) {
 
     return;
@@ -3387,11 +3400,18 @@ function updatePackageFocus() {
   }
 
 
-  const cards = [
-    ...visibleGrid.querySelectorAll(
-      ".package-card"
-    )
-  ];
+  const visibleGrid =
+    !packageGridCombo.hidden
+      ? packageGridCombo
+      : packageGridChocolate;
+
+
+  const cards =
+    [
+      ...visibleGrid.querySelectorAll(
+        ".package-card"
+      )
+    ];
 
 
   if (!cards.length) {
@@ -3401,11 +3421,12 @@ function updatePackageFocus() {
   }
 
 
-  const center =
+  const viewportCenter =
     window.innerHeight / 2;
 
 
-  let closest = null;
+  let closestCard =
+    null;
 
   let closestDistance =
     Infinity;
@@ -3425,7 +3446,7 @@ function updatePackageFocus() {
 
       const distance =
         Math.abs(
-          center -
+          viewportCenter -
           cardCenter
         );
 
@@ -3438,7 +3459,7 @@ function updatePackageFocus() {
         closestDistance =
           distance;
 
-        closest =
+        closestCard =
           card;
 
       }
@@ -3452,7 +3473,7 @@ function updatePackageFocus() {
 
       card.classList.toggle(
         "package-focus",
-        card === closest
+        card === closestCard
       );
 
     }
@@ -3498,9 +3519,9 @@ window.addEventListener(
 );
 
 
-/* =========================================================
-   PAGE / VIEW SWITCHING
-========================================================= */
+/* =========================================
+   VIEW SYSTEM
+========================================= */
 
 const views = {
 
@@ -3531,9 +3552,7 @@ function showView(
   name
 ) {
 
-  Object.keys(
-    views
-  ).forEach(
+  Object.keys(views).forEach(
     (key) => {
 
       views[key].hidden =
@@ -3562,12 +3581,26 @@ function showView(
 }
 
 
-/* LANDING PAGE BUTTONS */
+/* =========================================
+   PACKAGE BACK BUTTON
+========================================= */
+
+packageDetailBack.addEventListener(
+  "click",
+  () => {
+
+    showView("packages");
+
+  }
+);
+
+
+/* =========================================
+   LANDING NAVIGATION
+========================================= */
 
 document
-  .querySelectorAll(
-    "[data-view]"
-  )
+  .querySelectorAll("[data-view]")
   .forEach(
     (el) => {
 
@@ -3586,12 +3619,12 @@ document
   );
 
 
-/* GENERAL BACK BUTTON */
+/* =========================================
+   GENERAL BACK BUTTON
+========================================= */
 
 document
-  .querySelectorAll(
-    "[data-back]"
-  )
+  .querySelectorAll("[data-back]")
   .forEach(
     (el) => {
 
@@ -3599,9 +3632,7 @@ document
         "click",
         () => {
 
-          showView(
-            "landing"
-          );
+          showView("landing");
 
         }
       );
@@ -3610,7 +3641,9 @@ document
   );
 
 
-/* LOGO RETURNS HOME */
+/* =========================================
+   LOGO RETURNS HOME
+========================================= */
 
 const logoHome =
   document.getElementById(
@@ -3622,9 +3655,7 @@ logoHome.addEventListener(
   "click",
   () => {
 
-    showView(
-      "landing"
-    );
+    showView("landing");
 
   }
 );
@@ -3641,9 +3672,7 @@ logoHome.addEventListener(
 
       e.preventDefault();
 
-      showView(
-        "landing"
-      );
+      showView("landing");
 
     }
 
@@ -3651,11 +3680,11 @@ logoHome.addEventListener(
 );
 
 
-/* INITIAL PAGE */
+/* =========================================
+   START
+========================================= */
 
-showView(
-  "landing"
-);
+showView("landing");
 
 </script>
 
