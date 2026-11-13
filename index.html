@@ -789,17 +789,6 @@ footer {
    LANGUAGE TOGGLE (AR default)
 ========================================= */
 
-.package-tray-note {
-  margin: 0 0 10px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  background: rgba(201,161,90,0.16);
-  color: var(--burgundy);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-align: center;
-}
-
 .lang-toggle {
   position: fixed;
   top: 10px;
@@ -1205,7 +1194,6 @@ const T = {
     delivery: "التوصيل مجانًا حاليًا داخل مدينة الرياض",
     deposit: "تأجير الصواني مجاني حاليًا لعملائنا الكرام، مع دفع مبلغ تأمين مستردّ منفصل. يُعاد مبلغ التأمين كاملًا عند إرجاع الصواني بحالة سليمة بعد انتهاء المناسبة.",
     cta_book: "للاستفسار والحجز عبر واتساب",
-    tray_free: "تأجير الصواني مجاني حاليًا، مع مبلغ تأمين مستردّ",
     cta_order: "للطلب والاستفسار عبر واتساب",
     chefz: "اطلب عبر ذا شيفز", jahez: "اطلب عبر جاهز",
     visit: "زورونا",
@@ -1239,7 +1227,6 @@ const T = {
     delivery: "Delivery is currently free within Riyadh City",
     deposit: "Tray rental is currently complimentary for our valued customers. A separate refundable security deposit applies and is returned in full once the trays are returned in good condition after your event.",
     cta_book: "Inquire & book via WhatsApp",
-    tray_free: "Tray rental is currently free, with a refundable security deposit",
     cta_order: "For Orders Call/Message Cocora",
     chefz: "Order on The Chefz", jahez: "Order on Jahez",
     visit: "Visit Us",
@@ -2094,8 +2081,6 @@ function buildPackageCard(type, pkg) {
     </div>
 
     <ul class="package-specs">${specs}</ul>
-
-    <p class="package-tray-note">${t("delivery")}<br>${t("tray_free")}</p>
 
     <p class="package-price">${priceHtml(pkg.price)}</p>
 
