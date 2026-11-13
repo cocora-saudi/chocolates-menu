@@ -885,9 +885,7 @@ html[lang="ar"] footer {
         <button type="button" class="package-tab" data-package-tab="chocolate" data-i18n="tab_choc"></button>
       </div>
 
-      <p class="package-delivery-note" data-i18n="delivery"></p>
-      <p class="package-delivery-note" data-i18n="deposit"></p>
-
+      
       <div class="package-grid" id="package-grid-combo"></div>
       <div class="package-grid" id="package-grid-chocolate" hidden></div>
 
@@ -1207,7 +1205,7 @@ const T = {
     delivery: "التوصيل مجانًا حاليًا داخل مدينة الرياض",
     deposit: "تأجير الصواني مجاني حاليًا لعملائنا الكرام، مع دفع مبلغ تأمين مستردّ منفصل. يُعاد مبلغ التأمين كاملًا عند إرجاع الصواني بحالة سليمة بعد انتهاء المناسبة.",
     cta_book: "للاستفسار والحجز عبر واتساب",
-    tray_free: "تأجير الصواني مجاني حاليًا",
+    tray_free: "تأجير الصواني مجاني حاليًا، مع مبلغ تأمين مستردّ",
     cta_order: "للطلب والاستفسار عبر واتساب",
     chefz: "اطلب عبر ذا شيفز", jahez: "اطلب عبر جاهز",
     visit: "زورونا",
@@ -1241,7 +1239,7 @@ const T = {
     delivery: "Delivery is currently free within Riyadh City",
     deposit: "Tray rental is currently complimentary for our valued customers. A separate refundable security deposit applies and is returned in full once the trays are returned in good condition after your event.",
     cta_book: "Inquire & book via WhatsApp",
-    tray_free: "Tray rental is currently free",
+    tray_free: "Tray rental is currently free, with a refundable security deposit",
     cta_order: "For Orders Call/Message Cocora",
     chefz: "Order on The Chefz", jahez: "Order on Jahez",
     visit: "Visit Us",
@@ -2097,7 +2095,7 @@ function buildPackageCard(type, pkg) {
 
     <ul class="package-specs">${specs}</ul>
 
-    <p class="package-tray-note">${t("tray_free")}</p>
+    <p class="package-tray-note">${t("delivery")}<br>${t("tray_free")}</p>
 
     <p class="package-price">${priceHtml(pkg.price)}</p>
 
