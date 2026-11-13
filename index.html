@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,8 +44,8 @@ body {
 
 .logo-wrap img {
   display: block;
-  max-width: 230px;
-  width: 62%;
+  max-width: 340px;
+  width: 80%;
   height: auto;
   margin: 0 auto;
 }
@@ -618,7 +618,7 @@ section.category {
   color: var(--gold);
   font-size: 0.75rem;
   font-weight: 800;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-title {
@@ -626,7 +626,7 @@ section.category {
   color: var(--burgundy);
   font-size: clamp(1.4rem, 5vw, 1.9rem);
   line-height: 1.35;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-price {
@@ -634,7 +634,7 @@ section.category {
   color: var(--burgundy);
   font-size: 1.15rem;
   font-weight: 800;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-grid {
@@ -649,7 +649,7 @@ section.category {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-stat span {
@@ -668,7 +668,7 @@ section.category {
 .package-detail-info {
   border-top: 1px solid var(--border);
   padding-top: 1rem;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-info h3 {
@@ -679,8 +679,8 @@ section.category {
 
 .package-detail-info ul {
   margin: 0;
-  padding-right: 1.2rem;
-  padding-left: 0;
+  padding-inline-start: 1.2rem;
+  padding-inline-end: 0;
   color: var(--text-secondary);
   line-height: 1.8;
   font-size: 0.9rem;
@@ -695,7 +695,7 @@ section.category {
   color: var(--text-primary);
   font-size: 0.88rem;
   line-height: 1.75;
-  text-align: right;
+  text-align: start;
 }
 
 .package-detail-cta {
@@ -784,9 +784,47 @@ footer {
     transition: none;
   }
 }
+
+/* =========================================
+   LANGUAGE TOGGLE (AR default)
+========================================= */
+
+.lang-toggle {
+  position: fixed;
+  top: 10px;
+  inset-inline-end: 10px;
+  z-index: 60;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: var(--burgundy);
+  color: var(--gold);
+  font: 700 0.8rem/1 inherit;
+  cursor: pointer;
+}
+
+.category-nav {
+  padding-inline-end: 80px;
+}
+
+.package-delivery-note + .package-delivery-note {
+  margin-top: -8px;
+  line-height: 1.7;
+}
+
+html[lang="ar"] body {
+  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", Arial, sans-serif;
+}
+
+html[lang="ar"] .tagline,
+html[lang="ar"] footer {
+  letter-spacing: 0;
+}
 </style>
 </head>
 <body>
+
+<button type="button" class="lang-toggle" id="langToggle" aria-label="Change language"></button>
 
 <!-- LOGO -->
 
@@ -794,22 +832,20 @@ footer {
   <img src="images/cocora-logo.png" alt="Cocora — The Saudi Touch of Chocolate Art">
 </div>
 
-<p class="tagline">
-  Menu · <span dir="rtl">القائمة</span>
-</p>
+<p class="tagline" data-i18n="menu"></p>
 
 
 <!-- STICKY CATEGORY BAR -->
 
 <div class="category-bar" id="categoryBar">
   <nav class="category-nav" id="categoryNav">
-    <a href="#packages" data-target="packages">Packages</a>
-    <a href="#flavors" data-target="flavors">Ganache &amp; praline</a>
-    <a href="#specials" data-target="specials">Cocora Specials</a>
-    <a href="#box" data-target="box">Box</a>
-    <a href="#dragee" data-target="dragee">Dragee</a>
-    <a href="#bar" data-target="bar">Bar</a>
-    <a href="#fingers" data-target="fingers">Fingers &amp; cigarettes</a>
+    <a href="#packages" data-target="packages"><span data-i18n="nav_packages"></span></a>
+    <a href="#flavors" data-target="flavors"><span data-i18n="nav_flavors"></span></a>
+    <a href="#specials" data-target="specials"><span data-i18n="nav_specials"></span></a>
+    <a href="#box" data-target="box"><span data-i18n="nav_box"></span></a>
+    <a href="#dragee" data-target="dragee"><span data-i18n="nav_dragee"></span></a>
+    <a href="#bar" data-target="bar"><span data-i18n="nav_bar"></span></a>
+    <a href="#fingers" data-target="fingers"><span data-i18n="nav_fingers"></span></a>
   </nav>
 </div>
 
@@ -822,43 +858,30 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-packages">
         <span class="category-title">
-          <span class="category-name">Party &amp; Wedding Packages</span>
-          <span class="ar">باقات المناسبات والأعراس</span>
+          <span class="category-name" data-i18n="h_packages"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
     </h2>
 
-    <div class="category-body" id="body-packages" dir="rtl" hidden>
+    <div class="category-body" id="body-packages" hidden>
 
-      <p class="package-intro">
-        الباقات تبدأ من 30 شخصًا وتزداد حسب عدد الضيوف
-      </p>
+<p class="package-intro" data-i18n="pkg_intro"></p>
 
       <div class="package-tabs" role="tablist">
-        <button type="button" class="package-tab active" data-package-tab="combo">
-          شوكولاتة وموالح
-        </button>
+        <button type="button" class="package-tab active" data-package-tab="combo" data-i18n="tab_combo"></button>
 
-        <button type="button" class="package-tab" data-package-tab="chocolate">
-          شوكولاتة فقط
-        </button>
+        <button type="button" class="package-tab" data-package-tab="chocolate" data-i18n="tab_choc"></button>
       </div>
 
-      <p class="package-delivery-note">
-        Delivery is currently free within Riyadh City
-        <span class="delivery-ar" dir="rtl">
-          التوصيل مجانًا حاليًا داخل مدينة الرياض
-        </span>
-      </p>
+      <p class="package-delivery-note" data-i18n="delivery"></p>
+      <p class="package-delivery-note" data-i18n="deposit"></p>
 
       <div class="package-grid" id="package-grid-combo"></div>
       <div class="package-grid" id="package-grid-chocolate" hidden></div>
 
       <div class="package-cta">
-        <a class="order-btn" data-link="whatsapp" target="_blank" rel="noopener">
-          للاستفسار والحجز عبر واتساب
-        </a>
+        <a class="order-btn" data-link="whatsapp" target="_blank" rel="noopener" data-i18n="cta_book"></a>
       </div>
 
     </div>
@@ -871,8 +894,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-flavors">
         <span class="category-title">
-          <span class="category-name">Ganache &amp; praline</span>
-          <span class="ar">غانش وبرالين</span>
+          <span class="category-name" data-i18n="nav_flavors"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -886,8 +908,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-specials">
         <span class="category-title">
-          <span class="category-name">Cocora Specials</span>
-          <span class="ar">عروض كوكورا</span>
+          <span class="category-name" data-i18n="nav_specials"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -901,8 +922,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-box">
         <span class="category-title">
-          <span class="category-name">Box</span>
-          <span class="ar">بوكس</span>
+          <span class="category-name" data-i18n="nav_box"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -916,8 +936,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-dragee">
         <span class="category-title">
-          <span class="category-name">Dragee</span>
-          <span class="ar">دراجيه</span>
+          <span class="category-name" data-i18n="nav_dragee"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -931,8 +950,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-bar">
         <span class="category-title">
-          <span class="category-name">Bar</span>
-          <span class="ar">بار</span>
+          <span class="category-name" data-i18n="nav_bar"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -946,8 +964,7 @@ footer {
     <h2 class="category-heading">
       <button type="button" class="category-toggle" aria-expanded="false" aria-controls="body-fingers">
         <span class="category-title">
-          <span class="category-name">Fingers, cigarettes</span>
-          <span class="ar">أصابع، رولات</span>
+          <span class="category-name" data-i18n="nav_fingers"></span>
         </span>
         <span class="chevron" aria-hidden="true"></span>
       </button>
@@ -977,7 +994,7 @@ footer {
 
   <a data-link="map" target="_blank" rel="noopener" class="map-link" aria-label="Visit Us — open Cocora location on Google Maps">
     <img src="images/cocora-store.jpeg" alt="Cocora Chocolate shop front" loading="lazy">
-    <span class="map-link-label">Visit Us</span>
+    <span class="map-link-label" data-i18n="visit"></span>
   </a>
 
   <br>
@@ -999,8 +1016,7 @@ footer {
     <div class="detail-body">
 
       <p class="detail-name" id="detailName"></p>
-      <p class="detail-price" id="detailPrice"></p>
-      <p class="detail-desc" id="detailDesc"></p>
+            <p class="detail-desc" id="detailDesc"></p>
 
       <div class="detail-allergy-row" id="detailAllergyRow">
         <button type="button" class="allergen-icon-btn" id="allergenIconBtn" aria-label="Show allergens">⚠</button>
@@ -1010,17 +1026,17 @@ footer {
       <div class="order-buttons">
 
         <a class="order-btn" data-link="whatsapp" target="_blank" rel="noopener">
-          For Orders Call/Message Cocora
+          <span data-i18n="cta_order"></span>
         </a>
 
         <a class="order-btn chefz-jahez-btn" data-link="chefz" target="_blank" rel="noopener">
           <img class="order-btn-icon" src="images/chefz-logo.png" alt="">
-          Order on The Chefz
+          <span data-i18n="chefz"></span>
         </a>
 
         <a class="order-btn chefz-jahez-btn" data-link="jahez" target="_blank" rel="noopener">
           <img class="order-btn-icon" src="images/jahez-logo.png" alt="">
-          Order on Jahez
+          <span data-i18n="jahez"></span>
         </a>
 
       </div>
@@ -1034,13 +1050,13 @@ footer {
 <!-- PACKAGE POPUP -->
 
 <div class="overlay" id="packageOverlay">
-  <div class="detail-sheet" dir="rtl">
+  <div class="detail-sheet">
 
     <button type="button" class="close-btn" aria-label="العودة إلى القائمة">←</button>
 
     <div class="package-sheet-body">
 
-      <p class="package-detail-eyebrow">تفاصيل باقة المناسبات والأعراس</p>
+      <p class="package-detail-eyebrow" data-i18n="pd_eyebrow"></p>
 
       <h2 class="package-detail-title" id="packageDetailTitle"></h2>
 
@@ -1050,25 +1066,21 @@ footer {
 
       <div class="package-detail-info">
 
-        <h3>خيارات وتخصيص الباقة</h3>
+        <h3 data-i18n="pd_h3"></h3>
 
         <ul>
-          <li>يمكن للعميل اختيار أي من صواني التقديم المتوفرة ضمن الباقة.</li>
-          <li>يمكن للعميل اختيار وتخصيص أصناف الشوكولاتة لكل صينية حسب الأصناف المتوفرة.</li>
-          <li>التوصيل مجانًا حاليًا داخل مدينة الرياض.</li>
+          <li data-i18n="pd_li1"></li>
+          <li data-i18n="pd_li2"></li>
+          <li data-i18n="delivery"></li>
+          <li data-i18n="deposit"></li>
         </ul>
 
-        <p class="package-service-note">
-          حلويات الأعراس وخدمة التقديم متوفرتان بشكل منفصل مقابل رسوم إضافية.
-          يرجى التواصل مع خدمة العملاء للاستفسار عن الأسعار وإضافتهما إلى الباقة عند الرغبة.
-        </p>
+        <p class="package-service-note" data-i18n="pd_note"></p>
 
       </div>
 
       <div class="package-detail-cta">
-        <a class="order-btn" data-link="whatsapp" target="_blank" rel="noopener">
-          للاستفسار والحجز عبر واتساب
-        </a>
+        <a class="order-btn" data-link="whatsapp" target="_blank" rel="noopener" data-i18n="cta_book"></a>
       </div>
 
     </div>
@@ -1092,6 +1104,176 @@ const LINKS = {
 
 /* The one section that starts open. Only one section is open at a time. Use one id: packages, flavors, specials, box, dragee, bar, fingers. Use "" to start with all closed. */
 const OPEN_BY_DEFAULT = "packages";
+
+/* =========================================
+   LANGUAGE (Arabic default)
+========================================= */
+
+let lang = "ar";
+try { if (localStorage.getItem("cocora-lang") === "en") lang = "en"; } catch (e) {}
+
+const AR_NAME = {
+  "Chocolate Pecan Dragee": "دراجيه البيكان بالشوكولاتة",
+  "Chocolate Cashew Dragee": "دراجيه الكاجو بالشوكولاتة",
+  "Chocolate Hazelnut Dragee": "دراجيه البندق بالشوكولاتة",
+  "Chocolate Almond Dragee": "دراجيه اللوز بالشوكولاتة",
+  "Chocolate Slices (35 pc)": "شرائح شوكولاتة (35 قطعة)",
+  "Chocolate Bar": "لوح شوكولاتة",
+  "Chocolate Bar With Nuts": "لوح شوكولاتة بالمكسرات",
+  "Chocolate Cigarettes (13 pc)": "سجائر شوكولاتة (13 قطعة)",
+  "Chocolate Dentelle (15 pc)": "دانتيل شوكولاتة (15 قطعة)",
+  "Chocolate Fingers with Nuts & Dry Fruit": "أصابع شوكولاتة بالمكسرات والفواكه المجففة",
+  "Najd Box (28 pc)": "بوكس نجد (28 قطعة)",
+  "Diriyah Box (18 pc)": "بوكس الدرعية (18 قطعة)",
+  "Salted Biscuits": "بسكويت مالح",
+  "Stuffed Dates": "تمر محشي",
+  "Wedding Sweets": "حلويات الأعراس"
+};
+
+const AR_DESC = {
+  "Roasted pecans wrapped in a smooth chocolate shell.": "حبات بيكان محمصة مغلفة بطبقة شوكولاتة ناعمة.",
+  "Whole roasted cashews coated in rich chocolate.": "حبات كاجو كاملة محمصة مغطاة بشوكولاتة غنية.",
+  "Toasted hazelnuts finished with a crisp chocolate coating.": "بندق محمص بطبقة شوكولاتة مقرمشة.",
+  "Crunchy roasted almonds dipped in smooth chocolate.": "لوز محمص مقرمش مغموس بالشوكولاتة الناعمة.",
+  "Thin, elegant chocolate slices finished by hand.": "شرائح شوكولاتة رفيعة وأنيقة بلمسة يدوية.",
+  "Classic smooth chocolate bar, Cocora's house recipe.": "لوح شوكولاتة كلاسيكي ناعم بوصفة كوكورا الخاصة.",
+  "Our house chocolate bar studded with mixed nuts.": "لوح شوكولاتة كوكورا المرصع بالمكسرات المشكلة.",
+  "Delicate rolled chocolate cigarettes, 13 pieces per box.": "سجائر شوكولاتة رقيقة ملفوفة، 13 قطعة في العلبة.",
+  "Thin, lace-like chocolate dentelle, 15 pieces per box.": "دانتيل شوكولاتة رقيق يشبه الدانتيل، 15 قطعة في العلبة.",
+  "Chocolate fingers layered with nuts and dried fruit.": "أصابع شوكولاتة بطبقات من المكسرات والفواكه المجففة.",
+  "An assorted 28-piece selection from across our collection.": "تشكيلة من 28 قطعة مختارة من مجموعتنا.",
+  "An assorted 18-piece selection from across our collection.": "تشكيلة من 18 قطعة مختارة من مجموعتنا.",
+  "Buttery salted biscuits, made fresh to order.": "بسكويت مالح بالزبدة، يُحضَّر طازجًا حسب الطلب.",
+  "Premium dates stuffed with a Cocora filling.": "تمر فاخر محشو بحشوة كوكورا.",
+  "Custom sweet arrangements for weddings and events.": "تنسيقات حلويات مخصصة للأعراس والمناسبات.",
+  "Chocolate pieces custom-covered with your company logo — made to order for corporate gifting and special events.": "قطع شوكولاتة مغلفة بشعار شركتكم، تُصنع حسب الطلب لهدايا الشركات والمناسبات الخاصة.",
+  "A warmly spiced ganache blended with rich dark chocolate.": "غانش بنكهة التوابل الدافئة ممزوج بالشوكولاتة الداكنة الغنية.",
+  "A fragrant Earl Grey tea-infused ganache.": "غانش عطري منقوع بشاي إيرل جراي.",
+  "A bright raspberry ganache balanced with smooth chocolate.": "غانش التوت العليق المنعش المتوازن مع الشوكولاتة الناعمة.",
+  "Cinnamon speculaas praline with a crunchy biscuit texture.": "برالين سبيكولاس بالقرفة بقوام بسكويت مقرمش.",
+  "Smooth espresso ganache paired with vanilla.": "غانش إسبريسو ناعم مع الفانيليا.",
+  "A tribute to Arabic coffee, spiced with warm cardamom — Cocora's signature specialty.": "تحية للقهوة العربية بنكهة الهيل الدافئة، وهي تخصص كوكورا المميز.",
+  "A rich fudge with oriental caramel notes.": "فادج غني بنكهات الكراميل الشرقي.",
+  "Classic gianduja praline brightened with orange.": "برالين جاندويا كلاسيكي بلمسة البرتقال المنعشة.",
+  "Crisp wafer layers coated in dark chocolate.": "طبقات ويفر مقرمشة مغطاة بالشوكولاتة الداكنة.",
+  "Crisp wafer layers coated in milk chocolate.": "طبقات ويفر مقرمشة مغطاة بشوكولاتة الحليب.",
+  "A silky chocolate truffle with a soft, melting center.": "ترافل شوكولاتة ناعم بقلب طري يذوب في الفم.",
+  "Thin, lace-like chocolate dentelle in a delicate crisp form.": "دانتيل شوكولاتة رقيق يشبه الدانتيل بقوام مقرمش ناعم.",
+  "A crunchy praline layered with mango and passion fruit.": "برالين مقرمش بطبقات من المانجو والباشن فروت.",
+  "A golden hazelnut rocher with a crunchy chocolate shell.": "روشيه بندق ذهبي بقشرة شوكولاتة مقرمشة.",
+  "Delicate rolled chocolate, finished by hand.": "شوكولاتة ملفوفة رقيقة بلمسة يدوية.",
+  "Thin chocolate slices studded with dried fruits.": "شرائح شوكولاتة رفيعة مرصعة بالفواكه المجففة.",
+  "Thin chocolate slices topped with pistachio.": "شرائح شوكولاتة رفيعة بالفستق.",
+  "Thin chocolate slices topped with roasted almonds.": "شرائح شوكولاتة رفيعة باللوز المحمص.",
+  "Thin, elegant chocolate slices, Cocora's signature cut.": "شرائح شوكولاتة رفيعة وأنيقة بقطعة كوكورا المميزة.",
+  "A salted peanut praline with a delicate crunch.": "برالين الفول السوداني المملح بقرمشة ناعمة.",
+  "Roasted pecans folded into a soft caramel ganache.": "بيكان محمص مع غانش الكراميل الناعم.",
+  "Crisp wafer layers coated in a rich coffee ganache.": "طبقات ويفر مقرمشة مغطاة بغانش القهوة الغني.",
+  "A pistachio praline finished with roasted pistachio pieces.": "برالين الفستق مزين بقطع الفستق المحمص.",
+  "A rich caramel ganache finished with a touch of sea salt.": "غانش كراميل غني بلمسة من ملح البحر."
+};
+
+const AR_ALLERGEN = {
+  "milk": "حليب", "nuts": "مكسرات", "peanuts": "فول سوداني", "gluten": "غلوتين",
+  "soya": "صويا", "eggs": "بيض", "dairy": "ألبان", "sulphites": "كبريتيت",
+  "almonds": "لوز", "dried fruit": "فواكه مجففة"
+};
+
+const AR_EXTRAS = {
+  "توصيل للشوكولاتة والموالح": "Chocolate & savories delivery",
+  "طاقم تقديم الشوكولاتة + التوصيل": "Chocolate serving set + delivery",
+  "طاقم تقديم الشوكولاتة": "Chocolate serving set"
+};
+
+const T = {
+  ar: {
+    menu: "القائمة",
+    nav_packages: "الباقات", nav_flavors: "غانش وبرالين", nav_specials: "عروض كوكورا",
+    nav_box: "بوكس", nav_dragee: "دراجيه", nav_bar: "بار", nav_fingers: "أصابع، رولات",
+    h_packages: "باقات المناسبات والأعراس",
+    pkg_intro: "الباقات تبدأ من 30 شخصًا وتزداد حسب عدد الضيوف",
+    tab_combo: "شوكولاتة وموالح", tab_choc: "شوكولاتة فقط",
+    delivery: "التوصيل مجانًا حاليًا داخل مدينة الرياض",
+    deposit: "تأجير الصواني مجاني حاليًا لعملائنا الكرام، مع دفع مبلغ تأمين مستردّ منفصل. يُعاد مبلغ التأمين كاملًا عند إرجاع الصواني بحالة سليمة بعد انتهاء المناسبة.",
+    cta_book: "للاستفسار والحجز عبر واتساب",
+    cta_order: "للطلب والاستفسار عبر واتساب",
+    chefz: "اطلب عبر ذا شيفز", jahez: "اطلب عبر جاهز",
+    visit: "زورونا",
+    pd_eyebrow: "تفاصيل باقة المناسبات والأعراس",
+    pd_h3: "خيارات وتخصيص الباقة",
+    pd_li1: "يمكن للعميل اختيار أي من صواني التقديم المتوفرة ضمن الباقة.",
+    pd_li2: "يمكن للعميل اختيار وتخصيص أصناف الشوكولاتة لكل صينية حسب الأصناف المتوفرة.",
+    pd_note: "حلويات الأعراس وخدمة التقديم متوفرتان بشكل منفصل مقابل رسوم إضافية. يرجى التواصل مع خدمة العملاء للاستفسار عن الأسعار وإضافتهما إلى الباقة عند الرغبة.",
+    toggle: "EN",
+    vat: "شامل الضريبة", cur: "ريال", allergies: "مسببات الحساسية: ",
+    best: "الأكثر مبيعًا", specialty: "تخصصنا", swiss: "سويسرية فاخرة",
+    hint: "اضغط لعرض تفاصيل الباقة",
+    pkg_name: (n) => `باقة ${n} شخص`,
+    pkg_title_combo: (n) => `باقة شوكولاتة وموالح لـ ${n} شخص`,
+    pkg_title_choc: (n) => `باقة شوكولاتة فقط لـ ${n} شخص`,
+    l_guests: "عدد الضيوف", v_guests: (n) => `${n} شخص`,
+    l_choc_trays: "صواني الشوكولاتة", l_savory: "صواني الموالح",
+    l_trays: "عدد الصواني", l_trays_d: "عدد صواني الشوكولاتة",
+    tray: (n) => `${n} صينية`,
+    l_per_tray: "كمية الشوكولاتة لكل صينية", v_per_tray: "١٫٥ كيلو",
+    l_total: "إجمالي كمية الشوكولاتة", kg: (n) => `${n} كيلو`,
+    l_set: "طاقم تقديم الشوكولاتة", included: "مشمول ضمن الباقة", not_included: "غير مشمول"
+  },
+  en: {
+    menu: "Menu",
+    nav_packages: "Packages", nav_flavors: "Ganache & praline", nav_specials: "Cocora Specials",
+    nav_box: "Box", nav_dragee: "Dragee", nav_bar: "Bar", nav_fingers: "Fingers & cigarettes",
+    h_packages: "Party & Wedding Packages",
+    pkg_intro: "Packages start from 30 guests and scale with guest count",
+    tab_combo: "Chocolate & savories", tab_choc: "Chocolate only",
+    delivery: "Delivery is currently free within Riyadh City",
+    deposit: "Tray rental is currently complimentary for our valued customers. A separate refundable security deposit applies and is returned in full once the trays are returned in good condition after your event.",
+    cta_book: "Inquire & book via WhatsApp",
+    cta_order: "For Orders Call/Message Cocora",
+    chefz: "Order on The Chefz", jahez: "Order on Jahez",
+    visit: "Visit Us",
+    pd_eyebrow: "Party & wedding package details",
+    pd_h3: "Package options & customization",
+    pd_li1: "You may choose any of the serving trays available within the package.",
+    pd_li2: "You may select and customize the chocolate varieties for each tray, subject to availability.",
+    pd_note: "Wedding sweets and serving service are available separately for an additional fee. Please contact customer service for pricing and to add them to your package.",
+    toggle: "عربي",
+    vat: "VAT Inclusive", cur: "SAR", allergies: "Allergies: ",
+    best: "Best Seller", specialty: "Our Specialty", swiss: "Premium Swiss",
+    hint: "Tap for package details",
+    pkg_name: (n) => `${n}-Guest Package`,
+    pkg_title_combo: (n) => `Chocolate & Savories Package — ${n} Guests`,
+    pkg_title_choc: (n) => `Chocolate-Only Package — ${n} Guests`,
+    l_guests: "Guests", v_guests: (n) => `${n} guests`,
+    l_choc_trays: "Chocolate trays", l_savory: "Savory trays",
+    l_trays: "Number of trays", l_trays_d: "Chocolate trays",
+    tray: (n) => `${n} ${n === 1 ? "tray" : "trays"}`,
+    l_per_tray: "Chocolate per tray", v_per_tray: "1.5 kg",
+    l_total: "Total chocolate", kg: (n) => `${n} kg`,
+    l_set: "Chocolate serving set", included: "Included in the package", not_included: "Not included"
+  }
+};
+
+const t = (k, ...a) => {
+  const v = T[lang][k];
+  return typeof v === "function" ? v(...a) : v;
+};
+
+function itemName(item) {
+  const [en, ar] = item.name.split(" / ");
+  return lang === "ar" ? (ar || AR_NAME[en] || en) : en;
+}
+
+function itemDesc(item) {
+  return lang === "ar" ? (AR_DESC[item.description] || item.description) : item.description;
+}
+
+function itemAllergy(item) {
+  if (lang !== "ar") return item.allergy;
+  return item.allergy.split(/,\s*/).map((a) => AR_ALLERGEN[a.toLowerCase()] || a).join("، ");
+}
+
+const priceHtml = (n) => `${n.toLocaleString("en-US")} ${t("cur")} <span class="price-note">${t("vat")}</span>`;
 
 
 /* =========================================
@@ -1706,7 +1888,6 @@ document.addEventListener("keydown", (e) => {
 const productOverlay = document.getElementById("productOverlay");
 const detailImg = document.getElementById("detailImg");
 const detailName = document.getElementById("detailName");
-const detailPrice = document.getElementById("detailPrice");
 const detailDesc = document.getElementById("detailDesc");
 const detailAllergyRow = document.getElementById("detailAllergyRow");
 const allergenIconBtn = document.getElementById("allergenIconBtn");
@@ -1719,14 +1900,13 @@ allergenIconBtn.addEventListener("click", () => {
 
 function openDetail(image, item, whatsappOnly) {
   detailImg.src = image;
-  detailImg.alt = item.name;
-  detailName.textContent = item.name;
-  detailPrice.textContent = item.price;
-  detailDesc.textContent = item.description || "";
+  detailImg.alt = itemName(item);
+  detailName.textContent = itemName(item);
+  detailDesc.textContent = itemDesc(item) || "";
   detailDesc.style.display = item.description ? "block" : "none";
 
   if (item.allergy) {
-    allergenText.textContent = "Allergies: " + item.allergy;
+    allergenText.textContent = t("allergies") + itemAllergy(item);
     allergenText.classList.remove("show");
     detailAllergyRow.style.display = "flex";
   } else {
@@ -1746,15 +1926,14 @@ function openDetail(image, item, whatsappOnly) {
 ========================================= */
 
 const flavorBadges = {
-  bestseller: { label: "Best Seller", class: "badge-bestseller" },
-  specialty: { label: "Our Specialty", class: "badge-specialty" }
+  bestseller: { key: "best", class: "badge-bestseller" },
+  specialty: { key: "specialty", class: "badge-specialty" }
 };
 
 const SWISS_BADGE = {
-  label: "سويسرية فاخرة",
+  key: "swiss",
   class: "badge-specialty",
-  position: "bottom-right",
-  dir: "rtl"
+  position: "bottom-right"
 };
 
 function buildCard(img, item, badges, onOpen) {
@@ -1764,16 +1943,16 @@ function buildCard(img, item, badges, onOpen) {
   card.setAttribute("role", "button");
 
   const badgeHtml = (badges || [])
-    .map((b) => `<span class="card-badge ${b.class} badge-${b.position}"${b.dir ? ` dir="${b.dir}"` : ""}>${b.label}</span>`)
+    .map((b) => `<span class="card-badge ${b.class} badge-${b.position}"${b.dir ? ` dir="${b.dir}"` : ""}>${t(b.key)}</span>`)
     .join("");
 
   card.innerHTML = `
     <div class="card-media">
-      <img class="card-img" src="${img}" alt="${item.name}" loading="lazy">
+      <img class="card-img" src="${img}" alt="${itemName(item)}" loading="lazy">
       ${badgeHtml}
     </div>
     <div class="card-body">
-      <p class="card-name">${item.name}</p>
+      <p class="card-name">${itemName(item)}</p>
     </div>
   `;
 
@@ -1788,9 +1967,11 @@ function buildCard(img, item, badges, onOpen) {
   return card;
 }
 
+function renderProducts() {
 Object.keys(categories).forEach((key) => {
   const cat = categories[key];
   const grid = document.getElementById("grid-" + key);
+  grid.replaceChildren();
 
   cat.items.forEach((item) => {
     const img = item.image || cat.image;
@@ -1799,6 +1980,7 @@ Object.keys(categories).forEach((key) => {
 });
 
 const flavorGrid = document.getElementById("grid-flavors");
+flavorGrid.replaceChildren();
 
 flavors.forEach((f) => {
   const img = f.image || flavorPlaceholder;
@@ -1806,7 +1988,7 @@ flavors.forEach((f) => {
 
   if (f.badge) {
     badges.push({
-      label: flavorBadges[f.badge].label,
+      key: flavorBadges[f.badge].key,
       class: flavorBadges[f.badge].class,
       position: "left"
     });
@@ -1816,6 +1998,7 @@ flavors.forEach((f) => {
 
   flavorGrid.appendChild(buildCard(img, f, badges, () => openDetail(img, f, false)));
 });
+}
 
 
 /* =========================================
@@ -1841,30 +2024,25 @@ function packageStat(label, value) {
 function openPackageDetail(type, pkg) {
   const isCombo = type === "combo";
 
-  packageDetailTitle.textContent = isCombo
-    ? `باقة شوكولاتة وموالح لـ ${pkg.pax} شخص`
-    : `باقة شوكولاتة فقط لـ ${pkg.pax} شخص`;
+  packageDetailTitle.textContent = t(isCombo ? "pkg_title_combo" : "pkg_title_choc", pkg.pax);
 
-  packageDetailPrice.innerHTML = `
-    ${pkg.price.toLocaleString("en-US")} ريال
-    <span class="price-note">قبل الخصم</span>
-  `;
+  packageDetailPrice.innerHTML = priceHtml(pkg.price);
 
-  const stats = [packageStat("عدد الضيوف", `${pkg.pax} شخص`)];
+  const stats = [packageStat(t("l_guests"), t("v_guests", pkg.pax))];
 
   if (isCombo) {
-    stats.push(packageStat("صواني الشوكولاتة", `${pkg.chocolateTrays} صينية`));
-    stats.push(packageStat("صواني الموالح", `${pkg.savoryTrays} صينية`));
-    stats.push(packageStat("كمية الشوكولاتة لكل صينية", "١٫٥ كيلو"));
+    stats.push(packageStat(t("l_choc_trays"), t("tray", pkg.chocolateTrays)));
+    stats.push(packageStat(t("l_savory"), t("tray", pkg.savoryTrays)));
+    stats.push(packageStat(t("l_per_tray"), t("v_per_tray")));
   } else {
-    stats.push(packageStat("عدد صواني الشوكولاتة", `${pkg.trays} صينية`));
-    stats.push(packageStat("كمية الشوكولاتة لكل صينية", "١٫٥ كيلو"));
-    stats.push(packageStat("إجمالي كمية الشوكولاتة", `${pkg.kilo} كيلو`));
+    stats.push(packageStat(t("l_trays_d"), t("tray", pkg.trays)));
+    stats.push(packageStat(t("l_per_tray"), t("v_per_tray")));
+    stats.push(packageStat(t("l_total"), t("kg", pkg.kilo)));
   }
 
   stats.push(packageStat(
-    "طاقم تقديم الشوكولاتة",
-    pkg.pax >= 100 ? "مشمول ضمن الباقة" : "غير مشمول"
+    t("l_set"),
+    pkg.pax >= 100 ? t("included") : t("not_included")
   ));
 
   packageDetailGrid.innerHTML = stats.join("");
@@ -1875,16 +2053,16 @@ function openPackageDetail(type, pkg) {
 function packageSpecs(type, pkg) {
   if (type === "combo") {
     return [
-      ["صواني الشوكولاتة", `${pkg.chocolateTrays} صينية`],
-      ["صواني الموالح", `${pkg.savoryTrays} صينية`],
-      ["كمية الشوكولاتة لكل صينية", "١٫٥ كيلو"]
+      [t("l_choc_trays"), t("tray", pkg.chocolateTrays)],
+      [t("l_savory"), t("tray", pkg.savoryTrays)],
+      [t("l_per_tray"), t("v_per_tray")]
     ];
   }
 
   return [
-    ["عدد الصواني", `${pkg.trays} صينية`],
-    ["كمية الشوكولاتة لكل صينية", "١٫٥ كيلو"],
-    ["إجمالي كمية الشوكولاتة", `${pkg.kilo} كيلو`]
+    [t("l_trays"), t("tray", pkg.trays)],
+    [t("l_per_tray"), t("v_per_tray")],
+    [t("l_total"), t("kg", pkg.kilo)]
   ];
 }
 
@@ -1900,18 +2078,15 @@ function buildPackageCard(type, pkg) {
 
   card.innerHTML = `
     <div class="package-card-head">
-      <span class="package-pax">باقة ${pkg.pax} شخص</span>
-      ${pkg.extras ? `<span class="package-extras">${pkg.extras}</span>` : ""}
+      <span class="package-pax">${t("pkg_name", pkg.pax)}</span>
+      ${pkg.extras ? `<span class="package-extras">${lang === "ar" ? pkg.extras : AR_EXTRAS[pkg.extras]}</span>` : ""}
     </div>
 
     <ul class="package-specs">${specs}</ul>
 
-    <p class="package-price">
-      ${pkg.price.toLocaleString("en-US")} ريال
-      <span class="price-note">قبل الخصم</span>
-    </p>
+    <p class="package-price">${priceHtml(pkg.price)}</p>
 
-    <span class="package-open-hint">اضغط لعرض تفاصيل الباقة</span>
+    <span class="package-open-hint">${t("hint")}</span>
   `;
 
   card.addEventListener("click", () => openPackageDetail(type, pkg));
@@ -1925,8 +2100,30 @@ function buildPackageCard(type, pkg) {
   return card;
 }
 
-packages.forEach((pkg) => packageGridCombo.appendChild(buildPackageCard("combo", pkg)));
-chocolateOnlyPackages.forEach((pkg) => packageGridChocolate.appendChild(buildPackageCard("chocolate", pkg)));
+function renderPackages() {
+  packageGridCombo.replaceChildren(...packages.map((pkg) => buildPackageCard("combo", pkg)));
+  packageGridChocolate.replaceChildren(...chocolateOnlyPackages.map((pkg) => buildPackageCard("chocolate", pkg)));
+}
+
+/* Applies the current language to the whole page; called on load and on toggle */
+const langToggle = document.getElementById("langToggle");
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  langToggle.textContent = t("toggle");
+  document.querySelectorAll(".overlay.open").forEach((o) => closeOverlay(o));
+  renderProducts();
+  renderPackages();
+  requestAnimationFrame(() => updateScrollState());
+}
+
+langToggle.addEventListener("click", () => {
+  lang = lang === "ar" ? "en" : "ar";
+  try { localStorage.setItem("cocora-lang", lang); } catch (e) {}
+  applyLang();
+});
 
 const packageTabs = document.querySelectorAll("[data-package-tab]");
 
@@ -2016,10 +2213,7 @@ function updateActiveChip() {
     chip.classList.toggle("active", isActive);
 
     if (isActive) {
-      categoryNav.scrollTo({
-        left: chip.offsetLeft - (categoryNav.clientWidth - chip.offsetWidth) / 2,
-        behavior: "smooth"
-      });
+      chip.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
     }
   });
 }
@@ -2074,6 +2268,9 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 window.addEventListener("resize", () => requestAnimationFrame(updateScrollState));
+
+
+applyLang();
 
 
 /* =========================================
